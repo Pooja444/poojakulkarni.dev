@@ -1,0 +1,19 @@
+{
+  "name": "poojakulkarni.dev",
+  "version": "0.0.1",
+  "description": "Personal blog website",
+  "main": "index.js",
+  "authors": {
+    "name": "Pooja Kulkarni",
+    "email": "poojakulkarni562@gmail.com"
+  },
+  "repository": "https://github.com/Pooja444/poojakulkarni.dev/poojakulkarni.dev",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
