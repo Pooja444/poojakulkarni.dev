@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Parallax } from "react-parallax";
+import { getViewport } from "../../util/util";
 import DirectionSign from "./DirectionSign";
 
 /**
@@ -25,6 +26,17 @@ const image3 = "https://brightcove04pmdo-a.akamaihd.net/5104226627001/5104226627
 const image4 = "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/empire-state-building-black-and-white-square-format-john-farnan.jpg";
 
 function ParallaxView() {
+
+    const [margins, setMargins] = useState("5vwx")
+
+    useEffect(() => {
+        const viewport = async () => {
+            const data = await getViewport()
+            setMargins(data < 3 ? "4vw" : "15vw")
+        }
+        viewport()
+    }, [])
+
     return (
         <Box>
             <Parallax bgImage={image1}>
@@ -59,17 +71,24 @@ function ParallaxView() {
                 paddingTop: "30px",
                 paddingBottom: "30px"
             }}>
-                <Typography sx={{ fontSize: "30px", paddingBottom: "30px" }}>
+                <Typography sx={{ fontSize: "2rem", paddingBottom: "30px" }}>
                     Who is Pooja Kulkarni?
                 </Typography>
                 <Typography sx={{
-                    fontSize: "17px",
-                    marginLeft: "15%",
-                    marginRight: "15%"
+                    fontSize: "1rem",
+                    marginLeft: margins,
+                    marginRight: margins
                 }}>
-                    This is a question I have asked myself on many occasions. What is it that defines me? Do my ambitions or my dreams define me? Or does my journey leading up to them define me? I believe it's a bit of both. My ambitions and dreams drive me and the path I have taken toward achieving them has built me into the person I am today.
-                    <br></br>
-                    <br></br>
+                    <Typography sx={{ display: { xs: 'none', sm: 'block', md: 'block', lg: 'block' } }}>
+                        This is a question I have asked myself on many occasions. What is it that defines me? Do my ambitions or my dreams define me? Or does my journey leading up to them define me? I believe it's a bit of both. My ambitions and dreams drive me and the path I have taken toward achieving them has built me into the person I am today.
+                        <br></br>
+                        <br></br>
+                    </Typography>
+                    <Typography sx={{ display: { xs: 'block', sm: 'none', md: 'none', lg: 'none' } }}>
+                        This is a question I have asked myself on many occasions. I believe that, while my dreams and ambitions define me, the path I have taken toward achieving them has built me into the person I am today.
+                        <br></br>
+                        <br></br>
+                    </Typography>
                     I am a Software Engineer. I enjoy learning new technologies and experimenting with random project ideas. I have worked as a Software Development Engineer for 3 years and I am now pursuing a Master's degree in Computer Science. For at least the foreseeable future, I imagine myself growing in this field until I outgrow it :D
                     <br></br>
                     <br></br>
@@ -82,17 +101,20 @@ function ParallaxView() {
                     That's who I am. That's Pooja Kulkarni.
                 </Typography>
             </Box>
-            {/* <Parallax bgImage={image2} blur={{ min: -1, max: 3 }}> */}
             <Parallax bgImage={image2}>
                 <Box style={{ height: "45vh" }}></Box>
             </Parallax>
             <Box sx={{
-                height: "80vh",
+                height: "85vh",
                 textAlign: "center",
                 paddingTop: "30px"
             }}>
-                <Typography sx={{ fontSize: "30px"}}>
-                    Pick your path and get to know me better!
+                <Typography sx={{
+                    fontSize: "1.7rem",
+                    marginLeft: { xs: '5vw', sm: '5vw', md: '0vw', lg: '0vw' },
+                    marginRight: { xs: '5vw', sm: '5vw', md: '0vw', lg: '0vw' }
+                }}>
+                    What would you like to know about me?
                 </Typography>
                 <DirectionSign></DirectionSign>
             </Box>
