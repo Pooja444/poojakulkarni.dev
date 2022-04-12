@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material';
 
-const font = "'Lato', sans-serif";
+const font = "'Raleway', sans-serif";
 
 const theme = createTheme({
     typography: {

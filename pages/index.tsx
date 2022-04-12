@@ -4,12 +4,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Box, Typography } from '@mui/material'
+import About from './about'
 
 const Home: NextPage = () => {
   return (
-    <Box>
-      <NavBar></NavBar>
-    </Box>
+    <About></About>
   )
 }
 

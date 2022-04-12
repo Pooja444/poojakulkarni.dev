@@ -35,11 +35,11 @@ const NavBar: NextPage = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
+                        <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
                             <IconButton size="large"
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
@@ -63,7 +63,7 @@ const NavBar: NextPage = () => {
                                 open={Boolean(anchorElNav)}
                                 onClose={handleCloseNavMenu}
                                 sx={{
-                                    display: { xs: 'block', md: 'none' },
+                                    display: { xs: 'block', sm: 'block', md: 'none' },
                                 }}
                             >
                                 {pages.map((page) => (
@@ -74,30 +74,36 @@ const NavBar: NextPage = () => {
                             </Menu>
                         </Box>
                         <Box>
-                            <Typography fontFamily="'Oregano', cursive" fontSize="35px" margin="auto" alignItems="center" color="secondary">Pooja Kulkarni</Typography>
-                        </Box>
-                    </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Box sx={{ ml: 4, display: { xs: 'none', md: 'flex' } }} justifyContent="flex-start">
-                            <Button href="/" style={{textTransform: 'none'}}>
-                                <Typography
+                            <Typography
                                 fontFamily="'Oregano', cursive"
-                                fontSize="45px"
-                                margin="auto"
+                                fontSize="30px" margin="auto"
                                 alignItems="center"
                                 color="secondary">
+                                Pooja Kulkarni
+                            </Typography>
+                        </Box>
+                    </Box>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
+                        <Box sx={{ ml: 4, display: { xs: 'none', sm: 'none', md: 'flex' } }} justifyContent="flex-start">
+                            <Button href="/" style={{ textTransform: 'none' }}>
+                                <Typography
+                                    fontFamily="'Oregano', cursive"
+                                    fontSize="40px"
+                                    margin="auto"
+                                    alignItems="center"
+                                    color="secondary">
                                     Pooja Kulkarni
                                 </Typography>
                             </Button>
                         </Box>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent="flex-end">
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'flex' } }} justifyContent="flex-end">
                             {pages.map((page) => (
                                 <Button href={`/${linksMap.get(page)}`}
                                     key={page}
                                     onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, display: 'block' }}
+                                    sx={{ pl: 1.2, pr: 1.2, my: 2, display: 'block', textTransform: 'none' }}
                                 >
-                                    <Typography color="secondary">{page}</Typography>
+                                    <Typography color="secondary" fontSize="17px">{page}</Typography>
                                 </Button>
                             ))}
                         </Box>
