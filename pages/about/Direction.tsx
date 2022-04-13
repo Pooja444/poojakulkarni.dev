@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material"
 
+
 interface DirectionProps {
     link: string,
     polygon: string,
@@ -14,6 +15,7 @@ interface DirectionProps {
     textRotate?: string
 }
 
+
 const defaults = {
     height: "7vh",
     width: "225.2px",
@@ -22,11 +24,12 @@ const defaults = {
     scale: "scale(1.15)"
 }
 
+
 function Direction(props: DirectionProps) {
 
     return <Box sx={{
-        height: props.height == undefined ? defaults.height : props.height,
-        width: props.width == undefined ? defaults.width : props.width,
+        height: props.height ?? defaults.height,
+        width: props.width ?? defaults.width,
         clipPath: props.polygon,
         backgroundColor: props.bgColor,
         marginLeft: props.marginLeft,
@@ -39,15 +42,15 @@ function Direction(props: DirectionProps) {
     }}>
         <Button href={`/${props.link}`} sx={{
             textTransform: "none",
-            width: props.width == undefined ? defaults.width : props.width
+            width: props.width ?? defaults.width
         }}>
             <Typography sx={{
                 marginLeft: props.textMarginLeft,
                 fontSize: "1.25rem",
-                transform: props.textRotate == undefined ? defaults.textRotate : props.textRotate,
-                marginTop: props.textMarginTop == undefined ? defaults.textMarginTop : props.textMarginTop,
+                transform: props.textRotate ?? defaults.textRotate,
+                marginTop: props.textMarginTop ?? defaults.textMarginTop,
                 ":hover": {
-                    transform: props.textRotate == undefined ? `${defaults.textRotate} ${defaults.scale}` : `${props.textRotate} ${defaults.scale}`,
+                    transform: `${props.textRotate ?? defaults.textRotate} ${defaults.scale}`,
                     transition: "all 0.2s ease-in-out 0.1s",
                 }
             }} color="white">
@@ -56,5 +59,6 @@ function Direction(props: DirectionProps) {
         </Button>
     </Box>
 }
+
 
 export default Direction

@@ -74,13 +74,15 @@ const NavBar: NextPage = () => {
                             </Menu>
                         </Box>
                         <Box>
-                            <Typography
-                                fontFamily="'Oregano', cursive"
-                                fontSize="30px" margin="auto"
-                                alignItems="center"
-                                color="secondary">
-                                Pooja Kulkarni
-                            </Typography>
+                            <Button href="/" style={{ textTransform: 'none' }}>
+                                <Typography
+                                    fontFamily="'Oregano', cursive"
+                                    fontSize="30px" margin="auto"
+                                    alignItems="center"
+                                    color="secondary">
+                                    Pooja Kulkarni
+                                </Typography>
+                            </Button>
                         </Box>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
