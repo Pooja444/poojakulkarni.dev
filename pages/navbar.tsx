@@ -77,7 +77,8 @@ const NavBar: NextPage = () => {
                             <Button href="/" style={{ textTransform: 'none' }}>
                                 <Typography
                                     fontFamily="'Oregano', cursive"
-                                    fontSize="30px" margin="auto"
+                                    fontSize="30px"
+                                    margin="auto"
                                     alignItems="center"
                                     color="secondary">
                                     Pooja Kulkarni
@@ -100,12 +101,21 @@ const NavBar: NextPage = () => {
                         </Box>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'flex' } }} justifyContent="flex-end">
                             {pages.map((page) => (
-                                <Button href={`/${linksMap.get(page)}`}
+                                <Button
+                                    href={`/${linksMap.get(page)}`}
                                     key={page}
                                     onClick={handleCloseNavMenu}
                                     sx={{ pl: 1.2, pr: 1.2, my: 2, display: 'block', textTransform: 'none' }}
                                 >
-                                    <Typography color="secondary" fontSize="17px">{page}</Typography>
+                                    <Typography
+                                        color="secondary"
+                                        fontSize="17px"
+                                        sx={{
+                                            ':hover': {
+                                                color: "#1D3944"
+                                            }
+                                        }}
+                                    >{page}</Typography>
                                 </Button>
                             ))}
                         </Box>
