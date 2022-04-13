@@ -13,13 +13,13 @@ import MenuItem from '@mui/material/MenuItem';
 
 import { useState } from 'react';
 
-const pages = ['Milestones', 'Blogs', 'Travel', 'For Recruiters', 'Projects/Hobbies', 'Contact me'];
+const pages = ['Milestones', 'Travel', 'For Recruiters', 'Projects/Hobbies', 'Blogs', 'Contact me'];
 const linksMap = new Map<string, string>([
     ["Milestones", "milestones"],
-    ["Blogs", "blogs"],
     ["Travel", "travel"],
     ["For Recruiters", "for-recruiters"],
     ["Projects/Hobbies", "projects-hobbies"],
+    ["Blogs", "blogs"],
     ["Contact me", "contact"],
 ]);
 

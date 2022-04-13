@@ -70,7 +70,7 @@ function DirectionSign() {
             marginTop="24.5vh"
             text="Projects/Hobbies"
             textMarginLeft="5%"
-            textRotate="rotate(7deg)"
+            textRotate="rotate(8deg)"
             textMarginTop="-1vh"
             width="220.8px"
             key="projects-hobbies"
