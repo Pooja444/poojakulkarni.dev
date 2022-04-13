@@ -21,11 +21,27 @@ const defaults = {
     width: "225.2px",
     textMarginTop: "0vh",
     textRotate: "rotate(0deg)",
-    scale: "scale(1.15)"
+    scale: "scale(1.2)"
 }
 
 
 function Direction(props: DirectionProps) {
+
+    const signTextId = `sign-${props.text.replace(' ','')}`
+
+    const handleDirectionHover = () => {
+        var elem = document.getElementById(signTextId)
+        if(elem != undefined) {
+            elem.style.transform = `${props.textRotate ?? defaults.textRotate} ${defaults.scale}`
+        }
+    }
+
+    const handleDirectionHoverEnd = () => {
+        var elem = document.getElementById(signTextId)
+        if(elem != undefined) {
+            elem.style.transform = `${props.textRotate ?? defaults.textRotate}`
+        }
+    }
 
     return <Box sx={{
         height: props.height ?? defaults.height,
@@ -39,7 +55,7 @@ function Direction(props: DirectionProps) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
-    }}>
+    }} onMouseEnter={handleDirectionHover} onMouseLeave={handleDirectionHoverEnd}>
         <Button href={`/${props.link}`} sx={{
             textTransform: "none",
             width: props.width ?? defaults.width
@@ -49,11 +65,8 @@ function Direction(props: DirectionProps) {
                 fontSize: "1.25rem",
                 transform: props.textRotate ?? defaults.textRotate,
                 marginTop: props.textMarginTop ?? defaults.textMarginTop,
-                ":hover": {
-                    transform: `${props.textRotate ?? defaults.textRotate} ${defaults.scale}`,
-                    transition: "all 0.2s ease-in-out 0.1s",
-                }
-            }} color="white">
+                transition: "all 0.2s ease-in-out 0.1s"
+            }} color="white" id={signTextId}>
                 {props.text}
             </Typography>
         </Button>
