@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "date": "May 2018",
+        "alignment": "right",
+        "title": "Graduated as a Computer Engineer",
+        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+    },
+    {
+        "id": 2,
+        "date": "May 2018",
+        "alignment": "left",
+        "title": "Graduated as a Computer Engineer",
+        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+    },
+    {
+        "id": 3,
+        "date": "May 2018",
+        "alignment": "right",
+        "title": "Graduated as a Computer Engineer",
+        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+    }
+]
