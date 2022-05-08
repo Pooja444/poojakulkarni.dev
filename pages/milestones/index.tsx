@@ -2,13 +2,13 @@ import type { NextPage } from 'next'
 import NavBar from '../navbar'
 import { Box, Typography } from '@mui/material'
 import Road from './road'
-import { Milestone } from './milestone'
+import Milestone, { MilestoneInfo } from './milestone'
 import milestonesJson from './milestones.json'
+import { useState } from 'react'
 
 const Milestones: NextPage = () => {
 
-  const milestones: Milestone[] = milestonesJson as Milestone[]
-  console.log(milestones)
+  const [milestones] = useState<MilestoneInfo[]>(milestonesJson as MilestoneInfo[])
 
   return (
     <Box>
@@ -23,10 +23,21 @@ const Milestones: NextPage = () => {
       </Box>
       <Box sx={{
         width: "100%",
-        display: "flex",
         justifyContent: "center",
       }}>
-        <Road length={`${milestones.length * 25}`} width="4.5"></Road>
+        <Road length={milestones.length * 23} key="road"></Road>
+        <Box>
+          {milestones.map((milestone, index) => (
+            <Milestone
+              id={index}
+              date={milestone.date}
+              alignment={index % 2 == 0 ? "right" : "left"}
+              title={milestone.title}
+              description={milestone.description}
+              key={milestone.id}
+            ></Milestone>
+          ))}
+        </Box>
       </Box>
     </Box>
   )
