@@ -7,7 +7,7 @@ function MilestoneText(props: Pick<MilestoneInfo, "title" | "description" | "ali
             width: "27.7vw",
             ml: props.alignment == "right" ? "26vw" : "13vw",
             backgroundColor: "#FBF3E9"
-            }}>
+        }}>
             <CardContent sx={{ padding: 0 }}>
                 <Typography
                     sx={{

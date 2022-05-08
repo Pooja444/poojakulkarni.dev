@@ -1,5 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from "@mui/material"
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box, Typography } from "@mui/material"
 import MilestoneText from "./milestoneText";
 
 export interface MilestoneInfo {
@@ -37,7 +36,6 @@ function Milestone(props: MilestoneInfo) {
                     width: "75px",
                     backgroundColor: "#FCC256",
                     borderRadius: "7vh 7vh 0vh 0vh",
-                    // mt: `2vh`,
                     textAlign: "center",
                     zIndex: 10
                 }}>
