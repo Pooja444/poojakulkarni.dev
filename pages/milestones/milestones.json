@@ -2,36 +2,41 @@
     {
         "date": "May, 2018",
         "title": "Graduated as a Computer Engineer",
-        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Mumbai University (Dwarkadas J. Sanghvi College of Engineering)."
+        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Mumbai University (Dwarkadas J. Sanghvi College of Engineering). And thus began my beautiful 'Computer Science' journey :)"
     },
     {
-        "date": "May, 2018",
-        "title": "Graduated as a Computer Engineer",
-        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+        "date": "Aug, 2018",
+        "title": "Started working at Morgan Stanley",
+        "description": "After 4 amazing years of Engineering, I was placed into Morgan Stanley. On 6th August, 2018 I joined as a Technology Analyst and I started with their 4-month long \"Technology Analyst Program\" training!"
     },
     {
-        "date": "May, 2018",
-        "title": "Graduated as a Computer Engineer",
-        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+        "date": "Jan, 2019",
+        "title": "Promoted to an Associate",
+        "description": "Soon after my training ended, I joined the Cash Confirmations team in Mumbai. As I was beginning to understand their Java-based tech stack and system, I was promoted to an Associate (SDE) role!"
     },
     {
-        "date": "May, 2018",
-        "title": "Graduated as a Computer Engineer",
-        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+        "date": "Aug, 2019",
+        "title": "Recognized for 'Taking Ownership'",
+        "description": "After completing a challenging but interesting 5-month long project, I received a department-wise recognition for 'Taking Ownerhsip'. Being the first professional project of my career, it will always be special to me!"
     },
     {
-        "date": "May, 2018",
-        "title": "Graduated as a Computer Engineer",
-        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+        "date": "Jan, 2020",
+        "title": "Promoted to a Senior Associate",
+        "description": "After a year of complex projects, tasks, challenges, numerous extracurricular and volunteering activities, I was promoted to a 'Senior Associate' (SDE) position. This was my 2nd promotion in a row! :D"
     },
     {
-        "date": "May, 2018",
-        "title": "Graduated as a Computer Engineer",
-        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+        "date": "June, 2020",
+        "title": "Started the most complex project ever",
+        "description": "June 2020. The month when I started the most complex project of my career (yet). I won't go into the details but if we start measuring the logical complexity of projects, 100 being the max value, this was an 85!"
     },
     {
-        "date": "May, 2018",
-        "title": "Graduated as a Computer Engineer",
-        "description": "On May 2018, I completed my undergraduate degree, majoring in Computer Engineering from Dwarkadas J. Sanghvi College of Engineering."
+        "date": "Jan, 2021",
+        "title": "Promoted to a Manager!",
+        "description": "Another year, another promotion! This one was a huge surpise. My manager knew that I was planning on leaving Morgan Stanley, but she was so impressed by my work that she promoted me to Manager (SDE) position! (3rd in a row!)"
+    },
+    {
+        "date": "Aug, 2021",
+        "title": "Started my MS in Computer Science",
+        "description": "On 7th August 2021, I moved to the United States of America to pursue my Master's degree in Computer Science!! Leaving my family, my home, my country was a big leap but I wouldn't have it any other way!"
     }
 ]
