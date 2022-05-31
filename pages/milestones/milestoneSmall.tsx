@@ -1,37 +1,30 @@
 import { Box, Typography } from "@mui/material"
+import { MilestoneInfo } from "./milestoneInfo";
 import MilestoneText from "./milestoneText";
 
-export interface MilestoneInfo {
-    id: number
-    date: string
-    alignment: "left" | "right"
-    title: string
-    description: string
-}
-
-function Milestone(props: MilestoneInfo) {
+function MilestoneSmall(props: MilestoneInfo & {viewport: number}) {
+    let milestoneGap = 0
+    switch(props.viewport) {
+        case 1:
+            milestoneGap = 180
+            break
+        case 2:
+            milestoneGap = 120
+            break
+        case 3:
+        default:
+            milestoneGap = 100
+    }
     return (
         <Box sx={{
             display: "flex",
             flexDirection: "row",
+            mb: `${milestoneGap}px`,
+            ml: props.viewport == 1 ? "50px" : "70px"
         }}>
-            <Box sx={{
-                flex: "2",
-                height: "120px",
-                display: props.alignment == "right" ? "none" : "block",
-                mt: "20px",
-            }}>
-                <MilestoneText
-                    title={props.title}
-                    description={props.description}
-                    alignment={props.alignment}
-                    key={"text" + props.id}
-                ></MilestoneText>
-            </Box>
             <Box sx={{ flex: "1", height: "120px" }}>
                 <Box sx={{
                     position: "absolute" as "absolute",
-                    left: props.alignment == "left" ? "43.4vw" : "51.3vw",
                     height: "45px",
                     width: "75px",
                     backgroundColor: "#FCC256",
@@ -39,13 +32,9 @@ function Milestone(props: MilestoneInfo) {
                     textAlign: "center",
                     zIndex: 10
                 }}>
-                    <Typography sx={{ fontSize: "30px" }}>
-                        {props.id + 1}
-                    </Typography>
                 </Box>
                 <Box sx={{
                     position: "absolute" as "absolute",
-                    left: props.alignment == "left" ? "43.4vw" : "51.3vw",
                     height: "120px",
                     width: "75px",
                     backgroundColor: "#ffffff",
@@ -53,22 +42,18 @@ function Milestone(props: MilestoneInfo) {
                     borderRadius: "7vh 7vh 1vh 1vh",
                     textAlign: "center",
                 }}>
-                    <Typography sx={{ fontSize: "18px", zIndex: 100, mt: "70%" }}>
+                    <Typography sx={{ fontSize: "19px", zIndex: 100, mt: "70%" }}>
                         {props.date}
                     </Typography>
                 </Box>
             </Box>
             <Box sx={{
-                flex: "2",
-                height: "120px",
-                display: props.alignment == "left" ? "none" : "block",
-                mt: "20px"
+                flex: props.viewport == 1 ? "4" : "6",
+                height: "120px"
             }}>
-                
                 <MilestoneText
                     title={props.title}
                     description={props.description}
-                    alignment={props.alignment}
                     key={"text" + props.id}
                 ></MilestoneText>
             </Box>
@@ -76,4 +61,4 @@ function Milestone(props: MilestoneInfo) {
     )
 }
 
-export default Milestone
+export default MilestoneSmall
