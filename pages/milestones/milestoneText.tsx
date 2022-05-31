@@ -1,13 +1,13 @@
 import { Card, CardContent, Typography } from "@mui/material"
-import { MilestoneInfo } from "./milestone"
+import { MilestoneInfo } from "./milestoneInfo"
 
 function MilestoneText(props: Pick<MilestoneInfo, "title" | "description" | "alignment">) {
     return (
         <Card sx={{
-            width: "27.7vw",
-            ml: props.alignment == "right" ? "26vw" : "13vw",
+            width: props.alignment == undefined ? "65vw" : "27.7vw",
+            ml: props.alignment == undefined ? "2vw" : (props.alignment == "right" ? "26vw" : "13vw"),
             backgroundColor: "#FBF3E9"
-        }}>
+            }}>
             <CardContent sx={{ padding: 0 }}>
                 <Typography
                     sx={{

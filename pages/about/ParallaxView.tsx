@@ -29,7 +29,6 @@ function ParallaxView() {
         (async () => {
             const viewport = await getViewport()
             const viewportName = Viewport[viewport]
-            console.log(viewportName)
             setIntroImage(`${baseIntroImage}${viewportName}.jpg`)
             switch (viewport) {
                 case 1:   // xs

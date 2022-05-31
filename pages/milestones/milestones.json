@@ -27,7 +27,7 @@
     {
         "date": "June, 2020",
         "title": "Started the most complex project ever",
-        "description": "June 2020. The month when I started the most complex project of my career (yet). I won't go into the details but if we start measuring the logical complexity of projects, 100 being the max value, this was an 85!"
+        "description": "June 2020. The month when I started the most complex project of my career (yet). I won't go into the details but if we start measuring the logical complexity of projects, 100 being the max value, this was a solid 85!"
     },
     {
         "date": "Jan, 2021",
@@ -38,5 +38,10 @@
         "date": "Aug, 2021",
         "title": "Started my MS in Computer Science",
         "description": "On 7th August 2021, I moved to the United States of America to pursue my Master's degree in Computer Science!! Leaving my family, my home, my country was a big leap but I wouldn't have it any other way!"
+    },
+    {
+        "date": "May, 2022",
+        "title": "Summer internship at Salesforce! ☁",
+        "description": "After months of preparation, hard work and relentless leetcoding, I was able to secure a Software Engineer internship at Salesforce! It was a huge achievement for me and I have loved every moment of this internship!"
     }
 ]
