@@ -96,6 +96,7 @@ const Milestones: NextPage = () => {
           }
         </Box>
       </Box>
+      {/*  TODO: Add a small car at the end of the road */}
     </Box>
   )
 }
