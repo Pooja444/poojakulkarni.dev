@@ -54,11 +54,11 @@ function TechnicalSkills(props: Pick<Skills, "technicalSkills">) {
         }}>
             {
                 props.technicalSkills.map(techSkill => (
-                    <Accordion disableGutters>
+                    <Accordion disableGutters sx={{ boxShadow: "none" }}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             sx={{
-                                backgroundColor: "#B2D5D7"
+                                backgroundColor: "#CFE7E9"
                             }}
                         >
                             <Typography
@@ -76,7 +76,7 @@ function TechnicalSkills(props: Pick<Skills, "technicalSkills">) {
                                 techSkill.skillSet.map(skill => (
                                     <Typography sx={{
                                         flex: `1 0 ${responsiveSetting.skillFlexPercentage}%`,
-                                        border: "0.01rem solid #B2D5D7",
+                                        border: "0.01rem solid #CFE7E9",
                                         pt: "10px",
                                         pb: "10px"
                                     }}>{skill}</Typography>

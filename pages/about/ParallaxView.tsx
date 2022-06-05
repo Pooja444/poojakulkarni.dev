@@ -138,7 +138,7 @@ function ParallaxView() {
                     marginLeft: { xs: '5vw', sm: '5vw', md: '0vw', lg: '0vw', xl: '0vw' },
                     marginRight: { xs: '5vw', sm: '5vw', md: '0vw', lg: '0vw', xl: '0vw' }
                 }}>
-                    What would you like to know about me?
+                    Want to more about me? Where would you like to go next?
                 </Typography>
                 <Box sx={{
                     backgroundImage: `url('${directionSignImage}')`,
