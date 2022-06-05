@@ -21,7 +21,6 @@ const Milestones: NextPage = () => {
       // sm, md and xs ==> only right alignment
       const viewport = await getViewport()
       setViewport(viewport)
-      console.log(Viewport[viewport])
     })()
   }, [])
 
