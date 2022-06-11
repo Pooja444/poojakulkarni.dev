@@ -53,8 +53,8 @@ function TechnicalSkills(props: Pick<Skills, "technicalSkills">) {
             mr: `${responsiveSetting.sideMargin}vw`,
         }}>
             {
-                props.technicalSkills.map(techSkill => (
-                    <Accordion disableGutters sx={{ boxShadow: "none" }}>
+                props.technicalSkills.map((techSkill, index) => (
+                    <Accordion disableGutters sx={{ boxShadow: "none" }} key={index}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             sx={{
@@ -73,13 +73,15 @@ function TechnicalSkills(props: Pick<Skills, "technicalSkills">) {
                             padding: 0
                         }}>
                             {
-                                techSkill.skillSet.map(skill => (
+                                techSkill.skillSet.map((skill, index2) => (
                                     <Typography sx={{
                                         flex: `1 0 ${responsiveSetting.skillFlexPercentage}%`,
                                         border: "0.01rem solid #CFE7E9",
                                         pt: "10px",
                                         pb: "10px"
-                                    }}>{skill}</Typography>
+                                    }}
+                                        key={index2}
+                                    >{skill}</Typography>
                                 ))
                             }
                         </AccordionDetails>
