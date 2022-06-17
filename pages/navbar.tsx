@@ -68,9 +68,13 @@ const NavBar: NextPage = () => {
                                 }}
                             >
                                 {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center" color="secondary">{page}</Typography>
-                                    </MenuItem>
+                                    <a href={`/${linksMap.get(page)}`}>
+                                        <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center" color="secondary">
+                                                {page}
+                                            </Typography>
+                                        </MenuItem>
+                                    </a>
                                 ))}
                             </Menu>
                         </Box>

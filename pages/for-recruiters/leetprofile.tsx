@@ -43,7 +43,7 @@ export interface SubmitStats {
 }
 
 export interface ProblemsSolvedBeatsStats {
-    difficulty: string
+    difficulty: SubmissionType
     percentage: number
 }
 
@@ -54,5 +54,5 @@ export interface User {
     contributions: Contributions[]
     profile: Profile
     submitStats: SubmitStats
-    problemsSolvedBeatsStats: ProblemsSolvedBeatsStats
+    problemsSolvedBeatsStats: ProblemsSolvedBeatsStats[]
 }

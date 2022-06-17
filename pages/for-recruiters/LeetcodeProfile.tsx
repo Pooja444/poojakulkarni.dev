@@ -15,31 +15,42 @@ interface SubmissionDetails {
     count: number
     total: number
     percentage: number
+    beats: number
 }
 
-function LeetcodeProfile(props: { data: UserResponse }) {
+function LeetcodeProfile(props: { data: UserResponse, sideMargins: number }) {
 
-    const initialObject: SubmissionDetails = { count: 0, total: 0, percentage: 0 }
+    const initialObject: SubmissionDetails = { count: 0, total: 0, percentage: 0, beats: 0 }
     const [allSubmissions, setAllSubmissions] = useState<SubmissionDetails>(initialObject)
     const [easySubmissions, setEasySubmissions] = useState<SubmissionDetails>(initialObject)
     const [mediumSubmissions, setMediumSubmissions] = useState<SubmissionDetails>(initialObject)
     const [hardSubmissions, setHardSubmissions] = useState<SubmissionDetails>(initialObject)
 
     useEffect(() => {
+        let difficultBeatsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
+        props.data.userProfile.problemsSolvedBeatsStats.forEach(difficultyType => {
+            difficultBeatsMap.set(difficultyType.difficulty, difficultyType.percentage)
+        })
         props.data.userProfile.submitStats.acSubmissionNum.forEach(submission => {
             const percentageSubmissions: number = (submission.count * 100) / submission.submissions
+            let submissions: SubmissionDetails = {
+                count: submission.count,
+                total: submission.submissions,
+                percentage: percentageSubmissions,
+                beats: Math.round(difficultBeatsMap.get(submission.difficulty) ?? 0)
+            }
             switch (submission.difficulty) {
                 case "All":
-                    setAllSubmissions({ count: submission.count, total: submission.submissions, percentage: percentageSubmissions })
+                    setAllSubmissions(submissions)
                     break
                 case "Easy":
-                    setEasySubmissions({ count: submission.count, total: submission.submissions, percentage: percentageSubmissions })
+                    setEasySubmissions(submissions)
                     break
                 case "Medium":
-                    setMediumSubmissions({ count: submission.count, total: submission.submissions, percentage: percentageSubmissions })
+                    setMediumSubmissions(submissions)
                     break
                 case "Hard":
-                    setHardSubmissions({ count: submission.count, total: submission.submissions, percentage: percentageSubmissions })
+                    setHardSubmissions(submissions)
                     break
                 default: break
             }
@@ -48,76 +59,80 @@ function LeetcodeProfile(props: { data: UserResponse }) {
 
     return (
         <Box sx={{
-            border: "0.15rem solid #EACDB3",
+            border: "0.1rem solid #EACDB3",
             borderRadius: "15px",
-            mt: "40px",
-            mb: "40px",
-            p: "16px",
+            mt: `${props.sideMargins}px`,
+            mb: `${props.sideMargins}px`,
+            p: "32px",
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
-            // backgroundColor: "#E3F6F8",
-            // color: "white"
+            backgroundColor: "#FBF3E9"
         }}>
 
             <Box
                 sx={{
-                    flex: 1.5,
+                    flex: 0.8,
                     display: "flex",
-                    flexDirection: "row"
+                    flexDirection: "row",
+                    minWidth: "300px",
+                    mt: "10px",
+                    mb: "10px"
                 }}
             >
                 <Box sx={{ flex: 0.7 }}>
                     <Box component="div" sx={{
                         borderRadius: "0.5rem",
                         overflow: 'hidden',
-                        width: "100px", height:
-                            "100px"
+                        width: "100px",
+                        height: "100px"
                     }}
                     >
-                        <Link href="https://leetcode.com/poojakulkarni562/">
-                            <Image src={props.data.userProfile.profile.userAvatar} width={100} height={100}></Image>
+                        <Image src={props.data.userProfile.profile.userAvatar} width={250} height={250}></Image><Link href="https://leetcode.com/poojakulkarni562/">
                         </Link>
                     </Box>
                 </Box>
-                <Box sx={{
-                    flex: "1"
-                }}>
+                <Box sx={{ flex: 1 }}>
                     <Typography fontSize="1.2rem">
-                        <a href="https://leetcode.com/poojakulkarni562/">Pooja Kulkarni</a>
+                        Pooja Kulkarni
                     </Typography>
                     <Typography fontSize="0.8rem">
                         poojakulkarni562
                     </Typography>
+                    <Typography fontSize="1.2rem" sx={{ mt: "16px" }}>
+                        Rank {props.data.userProfile.profile.ranking.toLocaleString()}
+                    </Typography>
                 </Box>
             </Box>
-            <Box sx={{ flex: 1 }}>
-                <Box sx={{ mb: "20px" }}>
-                    <Typography>
+            <Box sx={{ flex: 0.7, minWidth: "300px", mt: "10px", mb: "10px" }}>
+                <Box sx={{ mb: "20px", display: "flex", justifyContent: "center" }}>
+                    <Typography fontSize="1.3rem">
                         Solved Problems
                     </Typography>
                 </Box>
-                <Box sx={{
-                    maxWidth: "110px",
-                    maxHeight: "110px"
-                }}>
-                    <CircularProgressbar
-                        value={allSubmissions.percentage ?? 0}
-                        text={`${allSubmissions.count ?? 0}`}
-                        styles={buildStyles({
-                            pathColor: 'rgb(255 161 22)',
-                            textColor: 'rgb(255 161 22)'
-                        })}
-                    />
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                    <Box sx={{
+                        maxWidth: "110px",
+                        maxHeight: "110px"
+                    }}>
+                        <CircularProgressbar
+                            value={allSubmissions.percentage ?? 0}
+                            text={`${allSubmissions.count ?? 0}`}
+                            styles={buildStyles({
+                                pathColor: 'rgb(255 161 22)',
+                                textColor: 'rgb(255 161 22)'
+                            })}
+                        />
+                    </Box>
                 </Box>
             </Box>
-            <Box sx={{ flex: 3 }}>
+            <Box sx={{ flex: 1.5, minWidth: "300px", mt: "10px", mb: "10px" }}>
                 <Box sx={{ m: "16px" }}>
-                    <Typography>
-                        Easy <Box component="span" sx={{ pl: "40px" }}>
-                            {easySubmissions.count}/{easySubmissions.total}
-                        </Box>
-                    </Typography>
+                    <Box sx={{ display: "flex" }}>
+                        <Typography sx={{ flex: 1 }}>Easy</Typography>
+                        <Typography sx={{ flex: 1 }}>{easySubmissions.count}/{easySubmissions.total}</Typography>
+                        <Typography sx={{ flex: 1 }}>Beats {easySubmissions.beats}%</Typography>
+                    </Box>
                     <BorderLinearProgress
                         variant="determinate"
                         value={easySubmissions.percentage ?? 0}
@@ -131,11 +146,11 @@ function LeetcodeProfile(props: { data: UserResponse }) {
                     />
                 </Box>
                 <Box sx={{ m: "16px" }}>
-                    <Typography>
-                        Medium <Box component="span" sx={{ pl: "40px" }}>
-                            {mediumSubmissions.count}/{mediumSubmissions.total}
-                        </Box>
-                    </Typography>
+                    <Box sx={{ display: "flex" }}>
+                        <Typography sx={{ flex: 1 }}>Medium</Typography>
+                        <Typography sx={{ flex: 1 }}>{mediumSubmissions.count}/{mediumSubmissions.total}</Typography>
+                        <Typography sx={{ flex: 1 }}>Beats {mediumSubmissions.beats}%</Typography>
+                    </Box>
                     <BorderLinearProgress
                         variant="determinate"
                         value={mediumSubmissions.percentage ?? 0}
@@ -149,11 +164,11 @@ function LeetcodeProfile(props: { data: UserResponse }) {
                     />
                 </Box>
                 <Box sx={{ m: "16px" }}>
-                    <Typography>
-                        Hard <Box component="span" sx={{ pl: "40px" }}>
-                            {hardSubmissions.count}/{hardSubmissions.total}
-                        </Box>
-                    </Typography>
+                    <Box sx={{ display: "flex" }}>
+                        <Typography sx={{ flex: 1 }}>Hard</Typography>
+                        <Typography sx={{ flex: 1 }}>{hardSubmissions.count}/{hardSubmissions.total}</Typography>
+                        <Typography sx={{ flex: 1 }}>Beats {hardSubmissions.beats}%</Typography>
+                    </Box>
                     <BorderLinearProgress
                         variant="determinate"
                         value={hardSubmissions.percentage ?? 0}
