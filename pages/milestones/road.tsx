@@ -25,7 +25,7 @@ function Road(props: RoadProps) {
                 mt: "3vh",
                 mb: "3vh",
                 left: "52px",
-                background: "repeating-linear-gradient(to bottom, white 0, white 50px, transparent 50px, transparent 70px)",
+                background: "repeating-linear-gradient(to bottom, white 0, white 35px, transparent 35px, transparent 55px)",
                 zIndex: 9
             }}></Box>
 
@@ -38,7 +38,7 @@ function Road(props: RoadProps) {
                 borderRadius: "10px 10px 10px 10px",
                 mt: "3vh",
                 mb: "3vh",
-                background: "repeating-linear-gradient(to bottom, white 0, white 50px, transparent 50px, transparent 70px)",
+                background: "repeating-linear-gradient(to bottom, white 0, white 35px, transparent 35px, transparent 55px)",
                 zIndex: 9
             }}></Box>
 

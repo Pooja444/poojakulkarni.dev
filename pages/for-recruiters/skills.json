@@ -1,0 +1,81 @@
+{
+  "technicalSkills": [
+    {
+      "skillName": "Programming Languages",
+      "skillSet": [
+        "Java",
+        "Python",
+        "Golang",
+        "C++",
+        "Javascript",
+        "Typescript",
+        "Bash",
+        "SQL"
+      ]
+    },
+    {
+      "skillName": "Tools/Frameworks",
+      "skillSet": [
+        "Spring MVC",
+        "Spring Boot",
+        "Hibernate",
+        "JDBC",
+        "Gradle/Maven",
+        "Apache Airflow",
+        "JProfiler",
+        "Jenkins",
+        "Agile framework"
+      ]
+    },
+    {
+      "skillName": "Data management systems",
+      "skillSet": [
+        "MySQL",
+        "PostgreSQL",
+        "DB2",
+        "H2",
+        "Sybase",
+        "AWS Aurora",
+        "MongoDB"
+      ]
+    },
+    {
+      "skillName": "Web App Development",
+      "skillSet": [
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "NodeJS",
+        "Angular",
+        "React.js",
+        "MaterialUI",
+        "GraphQL",
+        "Thymeleaf"
+      ]
+    },
+    {
+      "skillName": "Cloud technologies",
+      "skillSet": [
+        "Docker",
+        "Kubernetes",
+        "AWS EC2",
+        "AWS S3",
+        "AWS Lambda",
+        "Cloudflare"
+      ]
+    },
+    {
+      "skillName": "Other applications/technologies",
+      "skillSet": [
+        "IBM MQ",
+        "Linux/Unix",
+        "REST APIs",
+        "SOAP Services",
+        "XML",
+        "XSLT",
+        "Jira",
+        "Confluence"
+      ]
+    }
+  ]
+}

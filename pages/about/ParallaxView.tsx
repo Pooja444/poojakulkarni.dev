@@ -93,7 +93,7 @@ function ParallaxView() {
                             Pooja Kulkarni
                         </Typography>
                         <Typography sx={{ fontSize: `${introDescrFontSize}rem`, color: "white" }}>
-                            Software Engineer. Traveler. Optimist. Happy soul.
+                            Software Engineer. Traveler. Optimist. A Happy Soul.
                         </Typography>
                     </Box>
                 </Box>
@@ -116,7 +116,7 @@ function ParallaxView() {
                         This is a question I have asked myself on many occasions. I believe that, while my dreams and ambitions define me, the path I have taken toward achieving them has built me into the person I am today.
                     </Typography>
                     <Typography sx={{ mb: "20px" }}>
-                        I am a Software Engineer. I enjoy learning new technologies and experimenting with random project ideas. I have worked as a Software Development Engineer for 3 years and I am now pursuing a Master's degree in Computer Science. For at least the foreseeable future, I imagine myself growing in this field until I outgrow it :D
+                        I am a Software Engineer. I enjoy learning new technologies and experimenting with random project ideas. I have worked as a Software Development Engineer for 3+ years and I am now pursuing a Master's degree in Computer Science. For at least the foreseeable future, I imagine myself growing in this field until I outgrow it :D
                     </Typography>
                     <Typography sx={{ mb: "20px" }}>
                         I have a fervent desire to travel the world. Cycling along the coasts of Hawaii, diving into the pristine waters of the Philippines or losing myself in the breathtaking beauty of the Amalfi coast is what I want to do in my life. And every passing moment, I make sure I am working hard enough so that I realize these dreams someday.
@@ -138,7 +138,7 @@ function ParallaxView() {
                     marginLeft: { xs: '5vw', sm: '5vw', md: '0vw', lg: '0vw', xl: '0vw' },
                     marginRight: { xs: '5vw', sm: '5vw', md: '0vw', lg: '0vw', xl: '0vw' }
                 }}>
-                    What would you like to know about me?
+                    Want to more about me? Where would you like to go next?
                 </Typography>
                 <Box sx={{
                     backgroundImage: `url('${directionSignImage}')`,
