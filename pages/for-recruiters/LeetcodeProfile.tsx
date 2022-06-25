@@ -1,6 +1,6 @@
 import { Box } from "@mui/system"
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar"
-import { SubmissionType, SubmissionNum, UserResponse } from "./leetprofile"
+import { SubmissionType, SubmissionNum, UserResponse, Leetcode } from "./Leetcode"
 import 'react-circular-progressbar/dist/styles.css';
 import { LinearProgress, linearProgressClasses, Link, styled, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -18,7 +18,7 @@ interface SubmissionDetails {
     beats: number
 }
 
-function LeetcodeProfile(props: { data: UserResponse, sideMargins: number }) {
+function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
 
     const initialObject: SubmissionDetails = { count: 0, total: 0, percentage: 0, beats: 0 }
     const [allSubmissions, setAllSubmissions] = useState<SubmissionDetails>(initialObject)
@@ -27,17 +27,22 @@ function LeetcodeProfile(props: { data: UserResponse, sideMargins: number }) {
     const [hardSubmissions, setHardSubmissions] = useState<SubmissionDetails>(initialObject)
 
     useEffect(() => {
-        let difficultBeatsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
-        props.data.userProfile.problemsSolvedBeatsStats.forEach(difficultyType => {
-            difficultBeatsMap.set(difficultyType.difficulty, difficultyType.percentage)
+        let difficultyBeatsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
+        let totalQuestionsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
+        props.data.user.problemsSolvedBeatsStats.forEach(quesionType => {
+            difficultyBeatsMap.set(quesionType.difficulty, quesionType.percentage)
         })
-        props.data.userProfile.submitStats.acSubmissionNum.forEach(submission => {
-            const percentageSubmissions: number = (submission.count * 100) / submission.submissions
+        props.data.questions.forEach(quesionType => {
+            totalQuestionsMap.set(quesionType.difficulty, quesionType.count)
+        })
+        props.data.user.submitStats.acSubmissionNum.forEach(submission => {
+            const totalQuestions: number = totalQuestionsMap.get(submission.difficulty) ?? 0
+            const percentageSubmissions: number = (submission.count * 100) / totalQuestions
             let submissions: SubmissionDetails = {
                 count: submission.count,
-                total: submission.submissions,
+                total: totalQuestions,
                 percentage: percentageSubmissions,
-                beats: Math.round(difficultBeatsMap.get(submission.difficulty) ?? 0)
+                beats: Math.round(difficultyBeatsMap.get(submission.difficulty) ?? 0)
             }
             switch (submission.difficulty) {
                 case "All":
@@ -88,7 +93,7 @@ function LeetcodeProfile(props: { data: UserResponse, sideMargins: number }) {
                         height: "100px"
                     }}
                     >
-                        <Image src={props.data.userProfile.profile.userAvatar} width={250} height={250}></Image><Link href="https://leetcode.com/poojakulkarni562/">
+                        <Image src={props.data.user.profile.userAvatar} width={250} height={250}></Image><Link href="https://leetcode.com/poojakulkarni562/">
                         </Link>
                     </Box>
                 </Box>
@@ -100,7 +105,7 @@ function LeetcodeProfile(props: { data: UserResponse, sideMargins: number }) {
                         poojakulkarni562
                     </Typography>
                     <Typography fontSize="1.2rem" sx={{ mt: "16px" }}>
-                        Rank {props.data.userProfile.profile.ranking.toLocaleString()}
+                        Rank {props.data.user.profile.ranking.toLocaleString()}
                     </Typography>
                 </Box>
             </Box>

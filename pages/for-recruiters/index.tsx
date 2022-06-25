@@ -7,9 +7,9 @@ import { Skills } from './skills';
 import skillsJson from './skills.json'
 import { getViewport } from '../../util/util';
 import LeetcodeProfile from './LeetcodeProfile';
-import { UserResponse } from './leetprofile';
+import { Leetcode, Questions, QuestionsResponse, User, UserResponse } from './Leetcode';
 
-function ForRecruiters(props: { data: UserResponse }) {
+function ForRecruiters(props: { data: Leetcode }) {
 
   const [skills] = useState<Skills>(skillsJson as Skills)
   const [sideMargins, setSideMargins] = useState(15)
@@ -167,8 +167,16 @@ function ForRecruiters(props: { data: UserResponse }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('https://leetprofileserver.herokuapp.com/profile/poojakulkarni562')
-  const data: any = (await res.json()) as UserResponse
+  const userData = await fetch('https://leetprofileserver.herokuapp.com/profile/poojakulkarni562')
+  const questionsData = await fetch('https://leetprofileserver.herokuapp.com/questions')
+  const userResponse: UserResponse = (await userData.json()) as UserResponse
+  const questionsResponse: QuestionsResponse = (await questionsData.json()) as QuestionsResponse
+  const user: User = userResponse.userProfile
+  const questions: Questions[] = questionsResponse.questions
+  const data: Leetcode = {
+    user: user,
+    questions: questions
+  }
 
   return {
     props: { data }

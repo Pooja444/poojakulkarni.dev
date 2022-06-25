@@ -56,3 +56,19 @@ export interface User {
     submitStats: SubmitStats
     problemsSolvedBeatsStats: ProblemsSolvedBeatsStats[]
 }
+
+export interface Questions {
+    difficulty: SubmissionType
+    count: number
+}
+
+export interface QuestionsResponse {
+    isError: boolean
+    error?: ErrorResponse
+    questions: Questions[]
+}
+
+export interface Leetcode {
+    user: User
+    questions: Questions[]
+  }
