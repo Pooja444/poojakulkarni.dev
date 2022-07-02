@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material'
 import Road from './road'
 import MilestoneBig from './milestoneBig'
 import milestonesJson from './milestones.json'
-import { getViewport, Viewport } from "../../util/util";
+import { getViewport } from "../../util/util";
 import { useEffect, useState } from 'react'
 import { MilestoneInfo } from './milestoneInfo'
 import MilestoneSmall from './milestoneSmall'

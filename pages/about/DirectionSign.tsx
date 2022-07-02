@@ -62,18 +62,18 @@ function DirectionSign() {
             key="for-recruiters"
         ></Direction>
         <Direction
-            link="projects-hobbies"
-            polygon="polygon(10% 0%, 100% 32%, 97% 96%, 10% 64%, 0% 32%)"
+            link="projects"
+            polygon="polygon(16% 0%, 100% 29%, 97% 93%, 16% 64%, 0% 32%)"
             bgColor="#4BB39E"
             height="12vh"
-            marginLeft="-196px"
-            marginTop="24.5vh"
-            text="Projects/Hobbies"
+            marginLeft="-155px"
+            marginTop="25vh"
+            text="Projects"
             textMarginLeft="5%"
             textRotate="rotate(8deg)"
             textMarginTop="-1vh"
-            width="220.8px"
-            key="projects-hobbies"
+            width="180.8px"
+            key="projects"
         ></Direction>
         <Direction
             link="blogs"
@@ -90,11 +90,11 @@ function DirectionSign() {
             link="contact"
             polygon="polygon(12% 0%, 100% 0%, 100% 100%, 12% 100%, 0% 50%)"
             bgColor="#58D1B9"
-            marginLeft="-191.52px"
+            marginLeft="-159.52px"
             marginTop="44.5vh"
             text="Contact Me"
             textMarginLeft="15%"
-            width="216px"
+            width="184px"
             key="contact-me"
         ></Direction>
     </Box>

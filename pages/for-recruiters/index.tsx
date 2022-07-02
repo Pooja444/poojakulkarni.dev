@@ -1,4 +1,3 @@
-import type { InferGetServerSidePropsType, NextPage } from 'next'
 import NavBar from '../navbar'
 import { Box, Typography } from '@mui/material'
 import TechnicalSkills from './technicalSkills'
@@ -8,6 +7,7 @@ import skillsJson from './skills.json'
 import { getViewport } from '../../util/util';
 import LeetcodeProfile from './LeetcodeProfile';
 import { Leetcode, Questions, QuestionsResponse, User, UserResponse } from './Leetcode';
+import Link from 'next/link';
 
 function ForRecruiters(props: { data: Leetcode }) {
 
@@ -159,7 +159,30 @@ function ForRecruiters(props: { data: Leetcode }) {
         justifyContent: "center"
       }}>
         <Typography>
-          <u><a style={{ color: "blue" }} href="https://leetcode.com/poojakulkarni562/">View entire leetcode profile</a></u>
+          <u><a style={{ color: "blue" }} href="https://leetcode.com/poojakulkarni562/">View full leetcode profile</a></u>
+        </Typography>
+      </Box>
+      <Box sx={{ textAlign: "center", mt: "40px", mb: "20px" }}>
+        <pre>
+          <Box sx={{ fontSize: "1.8rem", mb: "20px" }}>
+            {"<"}Projects{" />"}
+          </Box>
+        </pre>
+      </Box>
+      <Box sx={{
+        border: "0.05rem solid #217070",
+        borderRadius: "15px",
+        ml: `${sideMargins}vw`,
+        mr: `${sideMargins}vw`,
+        mt: "40px",
+        mb: "40px",
+        padding: "16px"
+      }}>
+        <Typography sx={{
+          fontSize: "1.2rem",
+          textAlign: "center"
+        }}>
+          Want to have a look at all my projects? Checkout my <a href="/projects" style={{ color: "blue" }}><u>projects</u></a> section or take a look at my <u><a style={{ color: "blue" }} href="https://github.com/Pooja444" target="_blank">Github profile</a></u> for a more detailed view!
         </Typography>
       </Box>
     </Box>

@@ -1,0 +1,212 @@
+[
+    {
+        "title": "poojakulkarni.dev - my portfolio website",
+        "type": {
+            "key": "personal",
+            "heading": "Personal Projects"
+        },
+        "description": "This is the project you're currently looking at, my portfolio website! The purpose of this project is to showcase my career, achievements, resume, projects, to express my thoughts and ideas via blogs, and a place to treasure all my travel memories! I hope you're liking it :)",
+        "links": [
+            {
+                "title": "Webiste",
+                "url": "https://poojakulkarni.dev/"
+            },
+            {
+                "title": "Source code",
+                "url": "https://github.com/Pooja444/poojakulkarni.dev"
+            }
+        ],
+        "techStack": [
+            "React.js",
+            "React Material UI",
+            "Node.js",
+            "Next.js",
+            "Typescript"
+        ]
+    },
+    {
+        "title": "Leetcode lib - leetcode.com data extractor",
+        "type": {
+            "key": "personal",
+            "heading": "Personal Projects"
+        },
+        "description": "This is an NPM module, used to extract all publicly available leetcode.com data. This data can be used for various purposes such as showcasing a leetcode profile on a website, perform data analytics, etc.! I've also built a Heroku server to expose APIs for this data",
+        "links": [
+            {
+                "title": "NPM",
+                "url": "https://www.npmjs.com/package/leet-profile-lib"
+            },
+            {
+                "title": "Demo",
+                "url": "http://leetprofileserver.herokuapp.com/profile/poojakulkarni562"
+            },
+            {
+                "title": "Lib source code",
+                "url": "https://github.com/Pooja444/leetcode-profile-lib"
+            }
+        ],
+        "techStack": [
+            "Typescript",
+            "Node.js",
+            "GraphQL",
+            "Apollo",
+            "Heroku"
+        ]
+    },
+    {
+        "title": "VaxAlerts - Covid-19 Vaccine alerts",
+        "type": {
+            "key": "personal",
+            "heading": "Personal Projects"
+        },
+        "description": "When Covid-19 vaccinations were released, there was a shortage of vaccines in India and most vaccine slots were getting booked in a matter of milliseconds. To solve this, me and a friend built a Discord.ts app to notify about these slots using OpenAPIs provided by the Indian Government.",
+        "links": [
+            {
+                "title": "LinkedIn",
+                "url": "https://www.linkedin.com/posts/poojakulkarni562_join-the-vax-alert-18-44-discord-server-activity-6796284338506928128-HfeI?utm_source=linkedin_share&utm_medium=member_desktop_web"
+            },
+            {
+                "title": "Source code",
+                "url": "https://github.com/Pooja444/cowin-alerts"
+            }
+        ],
+        "techStack": [
+            "Typescript",
+            "Discord.ts",
+            "Python",
+            "AWS",
+            "REST APIs",
+            "Yaml"
+        ]
+    },
+    {
+        "title": "GraphQL Schema Generator for PostgreSQL",
+        "type": {
+            "key": "personal",
+            "heading": "Personal Projects"
+        },
+        "description": "This is an automated GraphQL JS schema generator for PostgreSQL written in GoLang. It generates models and schemas based on the provided database config. This would save time for large databases and you can set up your entire GraphQL schema within seconds!",
+        "links": [
+            {
+                "title": "Source code",
+                "url": "https://gitlab.com/Pooji444/graphql-tool"
+            }
+        ],
+        "techStack": [
+            "Golang",
+            "GraphQL",
+            "PostgreSQL",
+            "Yaml"
+        ]
+    },
+    {
+        "title": "Wandergram - a social media webapp for travellers",
+        "type": {
+            "key": "personal",
+            "heading": "Personal Projects"
+        },
+        "description": "To get started with React.js, I created a social media webapp for travellers. Here, users can share travel experiences via posts, explore other users' posts and add votes and comments. I deployed it using Cloudflare Pages and used Cloudflare Workers KV as a data store",
+        "links": [
+            {
+                "title": "Website",
+                "url": "https://wandergram.pages.dev/"
+            },
+            {
+                "title": "Website code",
+                "url": "https://github.com/Pooja444/wandergram"
+            },
+            {
+                "title": "API code",
+                "url": "https://github.com/Pooja444/wandergram-api"
+            }
+        ],
+        "techStack": [
+            "React.js",
+            "Javascript",
+            "Typescript",
+            "Cloudflare Pages",
+            "Cloudflare Workers"
+        ]
+    },
+    {
+        "title": "GDB History Plugin",
+        "type": {
+            "key": "academic",
+            "heading": "Academic Projects"
+        },
+        "description": "This project stores the breakpoints history of a GDB session. After the session ends, all breakpoints and program states at these breakpoints will be dumped in a spreadsheet. This will make analysing complex programs easier when a number of breakpoints are set.",
+        "links": [
+            {
+                "title": "Source Code",
+                "url": "https://github.com/Pooja444/gdb-history-plugin"
+            }
+        ],
+        "techStack": [
+            "Python",
+            "GDB"
+        ]
+    },
+    {
+        "title": "Custom Virtual Machine",
+        "type": {
+            "key": "academic",
+            "heading": "Academic Projects"
+        },
+        "description": "To prevent reverse engineering of a password checking mechanism, I built a Custom VM in C++ that has its own set of assembly instructions, flag, registers and RAM that would mask the original assembly and make the binary much more complex to reverse.",
+        "links": [
+            {
+                "title": "Source Code",
+                "url": "https://github.com/Pooja444/custom-vm"
+            }
+        ],
+        "techStack": [
+            "C++",
+            "Python",
+            "Ghidra"
+        ]
+    },
+    {
+        "title": "AVX converter tool",
+        "type": {
+            "key": "academic",
+            "heading": "Academic Projects"
+        },
+        "description": "Most reverse engineering tools such as Ghidra, Angr, etc. find it difficult or impossible to reverse AVX instructions. At SEFCOM lab, ASU, I am developing a tool to convert these into general x86 instructions before loading a binary into a reverse engineering tool!",
+        "links": [
+            {
+                "title": "Source Code",
+                "url": "https://github.com/Pooja444/custom-vm"
+            }
+        ],
+        "techStack": [
+            "C",
+            "Python",
+            "Ghidra"
+        ]
+    },
+    {
+        "title": "Apache Sedona",
+        "type": {
+            "key": "openSourceContributions",
+            "heading": "Open Source Contributions"
+        },
+        "description": "Made an open source contribution to the Apache Sedona project by adding the 'ST_PointN' PostGIS geometry function. This function returns the Nth point in a single linestring or circular linestring in the geometry with negative values counting backwards",
+        "links": [
+            {
+                "title": "Pull request",
+                "url": "https://github.com/apache/incubator-sedona/pull/621"
+            },
+            {
+                "title": "Documentation",
+                "url": "https://sedona.apache.org/api/sql/Function/?h=st_pointn#st_pointn"
+            }
+        ],
+        "techStack": [
+            "Java",
+            "Scala",
+            "Python",
+            "JUnit",
+            "PostGIS"
+        ]
+    }
+]
