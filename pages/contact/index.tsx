@@ -120,7 +120,7 @@ function Contact() {
             mt: `${cardGaps}px`
           }}>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://www.linkedin.com/in/poojakulkarni562/">
+              <Link href="https://www.linkedin.com/in/poojakulkarni562/" passHref>
                 <a target="_blank">
                   <Image src="/contact/social-media-icons/linkedin.png"
                     width={iconDimensions + "px"}
@@ -130,7 +130,7 @@ function Contact() {
               </Link>
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://www.facebook.com/pooja.kulkarni.18400/">
+              <Link href="https://www.facebook.com/pooja.kulkarni.18400/" passHref>
                 <a target="_blank">
                   <Image src="/contact/social-media-icons/facebook.png"
                     width={iconDimensions + "px"}
@@ -140,7 +140,7 @@ function Contact() {
               </Link>
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://www.instagram.com/the.happy.soul444/">
+              <Link href="https://www.instagram.com/the.happy.soul444/" passHref>
                 <a target="_blank">
                   <Image src="/contact/social-media-icons/instagram.png"
                     width={iconDimensions + "px"}
@@ -150,7 +150,7 @@ function Contact() {
               </Link>
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://medium.com/@poojakulkarni562">
+              <Link href="https://medium.com/@poojakulkarni562" passHref>
                 <a target="_blank">
                   <Image src="/contact/social-media-icons/medium.png"
                     width={iconDimensions + "px"}

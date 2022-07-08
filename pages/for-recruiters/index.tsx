@@ -7,7 +7,6 @@ import skillsJson from './skills.json'
 import { getViewport } from '../../util/util';
 import LeetcodeProfile from './LeetcodeProfile';
 import { Leetcode, Questions, QuestionsResponse, User, UserResponse } from './Leetcode';
-import Link from 'next/link';
 
 function ForRecruiters(props: { data: Leetcode }) {
 
@@ -49,10 +48,10 @@ function ForRecruiters(props: { data: Leetcode }) {
     <Box>
       <NavBar></NavBar>
       <Box sx={{
-        mt: "70px",
         width: "100vw",
         backgroundColor: "#427F8F",
-        p: "15px",
+        pt: "85px",
+        pb: "15px",
         textAlign: "center"
       }}
       >

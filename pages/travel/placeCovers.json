@@ -1,0 +1,25 @@
+[
+    {
+        "country": "The United States of America",
+        "places": [
+            {
+                "title": "Hawaii",
+                "key": "hawaii",
+                "coverImage": "/travel/USA/hawaii.jpeg",
+                "overlayImage": "/travel/USA/hawaii-overlay.jpg"
+            },
+            {
+                "title": "San Francisco",
+                "key": "san-francisco",
+                "coverImage": "/travel/USA/san-francisco.jpeg",
+                "overlayImage": "/travel/USA/san-francisco-overlay.jpg"
+            },
+            {
+                "title": "Big Sur",
+                "key": "big-sur",
+                "coverImage": "/travel/USA/big-sur.jpeg",
+                "overlayImage": "/travel/USA/big-sur-overlay.jpg"
+            }
+        ]
+    }
+]
