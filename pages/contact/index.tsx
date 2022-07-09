@@ -110,7 +110,10 @@ function Contact() {
             POOJA KULKARNI
           </Typography>
           <Typography fontSize={cardSubTitleFontSize + "rem"} sx={{ mt: `${cardGaps}px` }}>
-            <a href="https://mailto@poojakulkarni562@gmail.com">poojakulkarni562@gmail.com</a> <span style={{ padding: `${cardGaps / 2}px` }}>|</span> San Francisco, California
+            <Link href="https://mailto@poojakulkarni562@gmail.com" passHref>
+              <a target="_blank">poojakulkarni562@gmail.com</a>
+            </Link>
+            <span style={{ padding: `${cardGaps / 2}px` }}>|</span> San Francisco, California
           </Typography>
           <Box sx={{
             display: "flex",

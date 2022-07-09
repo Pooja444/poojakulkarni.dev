@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Modal, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { getViewport } from "../../util/util"
 import NavBar from "../navbar"
@@ -10,12 +10,21 @@ import placeDetailsJson from './placesDetails.json'
 
 function Place(props: { place: PlaceDetails }) {
 
-    const [widthFactor, setWidthFactor] = useState(1.8)
-    const [imageDimensions, setImageDimensions] = useState(0)
-    const [imageGap, setImageGap] = useState(0)
-    const [viewport, setViewport] = useState(5)
-    const [titleFontSize, setTitleFontSize] = useState(0)
-    const [imageBorderWidth, setImageBorderWidth] = useState(0)
+    type Image = Pick<PlaceDetails["places"][0]["images"][0], "caption" | "url">
+
+    const [widthFactor, setWidthFactor] = useState<number>(1.8)
+    const [imageDimensions, setImageDimensions] = useState<number>(0)
+    const [imageGap, setImageGap] = useState<number>(0)
+    const [viewport, setViewport] = useState<number>(5)
+    const [titleFontSize, setTitleFontSize] = useState<number>(0)
+    const [modalOpen, setModalOpen] = useState<boolean>(false)
+    const [modalImage, setModalImage] = useState<Image>()
+
+    const handleOpen = (image: Image) => {
+        setModalOpen(true)
+        setModalImage(image)
+    }
+    const handleClose = () => setModalOpen(false)
 
     useEffect(() => {
         (async () => {
@@ -31,28 +40,24 @@ function Place(props: { place: PlaceDetails }) {
                 setImageDimensions(120)
                 setImageGap(5)
                 setTitleFontSize(1.2)
-                setImageBorderWidth(0.02)
                 break
             case 2:
                 setWidthFactor(4.8)
                 setImageDimensions(170)
                 setImageGap(8)
                 setTitleFontSize(1.3)
-                setImageBorderWidth(0.02)
                 break
             case 3:
                 setWidthFactor(3.8)
                 setImageDimensions(210)
                 setImageGap(10)
                 setTitleFontSize(1.3)
-                setImageBorderWidth(0.03)
                 break
             case 4:
                 setWidthFactor(2.8)
                 setImageDimensions(240)
                 setImageGap(12)
                 setTitleFontSize(1.4)
-                setImageBorderWidth(0.04)
                 break
             case 5:
             default:
@@ -60,7 +65,6 @@ function Place(props: { place: PlaceDetails }) {
                 setImageDimensions(260)
                 setImageGap(14)
                 setTitleFontSize(1.4)
-                setImageBorderWidth(0.05)
         }
     }, [viewport])
 
@@ -95,11 +99,11 @@ function Place(props: { place: PlaceDetails }) {
                                     place.images.map(image => (
                                         <Box sx={{
                                             margin: imageGap + "px",
-                                            // borderRadius: "8px",
                                             overflow: "hidden",
-                                            // border: imageBorderWidth + "rem solid #427F8F",
-                                            backgroundColor: "#DDF3FF"
-                                        }}>
+                                            backgroundColor: "#DDF3FF",
+                                            cursor: "pointer"
+                                        }}
+                                            onClick={() => handleOpen(image)}>
                                             <Image
                                                 src={image.url}
                                                 alt={image.url}
@@ -117,6 +121,33 @@ function Place(props: { place: PlaceDetails }) {
                 }
 
             </Box>
+            <Modal
+                open={modalOpen}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                disableAutoFocus={true}
+            >
+                <Box sx={{
+                    position: 'absolute' as 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: "65vw",
+                    height: "85vh",
+                    bgcolor: 'white',
+                    boxShadow: 24,
+                    p: 4,
+                }}>
+                    <Image
+                        src={modalImage != undefined ? modalImage.url : ""}
+                        alt={modalImage != undefined ? modalImage.url : ""}
+                        layout="fill"
+                        objectFit="contain"
+                        key={modalImage != undefined ? modalImage.url : ""}
+                    ></Image>
+                </Box>
+            </Modal>
         </Box>
     )
 }

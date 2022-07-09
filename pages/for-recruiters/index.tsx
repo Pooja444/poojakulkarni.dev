@@ -7,6 +7,7 @@ import skillsJson from './skills.json'
 import { getViewport } from '../../util/util';
 import LeetcodeProfile from './LeetcodeProfile';
 import { Leetcode, Questions, QuestionsResponse, User, UserResponse } from './Leetcode';
+import Link from 'next/link';
 
 function ForRecruiters(props: { data: Leetcode }) {
 
@@ -158,7 +159,9 @@ function ForRecruiters(props: { data: Leetcode }) {
         justifyContent: "center"
       }}>
         <Typography>
-          <u><a style={{ color: "blue" }} href="https://leetcode.com/poojakulkarni562/">View full leetcode profile</a></u>
+          <Link href="https://leetcode.com/poojakulkarni562/" passHref>
+            <a target="_blank" style={{ color: "blue", cursor: "pointer" }}><u>View full leetcode profile</u></a>
+          </Link>
         </Typography>
       </Box>
       <Box sx={{ textAlign: "center", mt: "40px", mb: "20px" }}>
