@@ -49,10 +49,10 @@ function ForRecruiters(props: { data: Leetcode }) {
     <Box>
       <NavBar></NavBar>
       <Box sx={{
-        mt: "70px",
         width: "100vw",
         backgroundColor: "#427F8F",
-        p: "15px",
+        pt: "85px",
+        pb: "15px",
         textAlign: "center"
       }}
       >
@@ -159,7 +159,9 @@ function ForRecruiters(props: { data: Leetcode }) {
         justifyContent: "center"
       }}>
         <Typography>
-          <u><a style={{ color: "blue" }} href="https://leetcode.com/poojakulkarni562/">View full leetcode profile</a></u>
+          <Link href="https://leetcode.com/poojakulkarni562/" passHref>
+            <a target="_blank" style={{ color: "blue", cursor: "pointer" }}><u>View full leetcode profile</u></a>
+          </Link>
         </Typography>
       </Box>
       <Box sx={{ textAlign: "center", mt: "40px", mb: "20px" }}>
