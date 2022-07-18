@@ -24,7 +24,7 @@ function ProjectCard(props: { project: Project }) {
                 </CardContent>
                 <CardActions>
                     {props.project.links.map(link => (
-                        <Button variant="contained" href={link.url} target="_blank" key={link.title} sx={{
+                        <Button variant="contained" href={link.url} target="_blank" rel="noreferrer" key={link.title} sx={{
                             backgroundColor: "#0DCBD7",
                             color: "white",
                             fontSize: "12px"

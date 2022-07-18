@@ -95,7 +95,7 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                     }}
                     >
                         <Link href="https://leetcode.com/poojakulkarni562/" passHref>
-                            <a target="_blank">
+                            <a target="_blank" rel="noreferrer">
                                 <Image src={props.data.user.profile.userAvatar} width={250} height={250}></Image>
                             </a>
                         </Link>

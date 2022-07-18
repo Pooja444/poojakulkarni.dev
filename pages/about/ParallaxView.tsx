@@ -107,7 +107,7 @@ function ParallaxView() {
                         display: { xs: 'none', sm: 'block', md: 'block', lg: 'block' },
                         mb: "20px"
                     }}>
-                        This is a question I have asked myself on many occasions. What is it that defines me? Do my ambitions or my dreams define me? Or does my journey leading up to them define me? I believe it's a bit of both. My ambitions and dreams drive me and the path I have taken toward achieving them has built me into the person I am today.
+                        This is a question I have asked myself on many occasions. What is it that defines me? Do my ambitions or my dreams define me? Or does my journey leading up to them define me? I believe it&apos;s a bit of both. My ambitions and dreams drive me and the path I have taken toward achieving them has built me into the person I am today.
                     </Typography>
                     <Typography sx={{
                         display: { xs: 'block', sm: 'none', md: 'none', lg: 'none' },
@@ -116,16 +116,16 @@ function ParallaxView() {
                         This is a question I have asked myself on many occasions. I believe that, while my dreams and ambitions define me, the path I have taken toward achieving them has built me into the person I am today.
                     </Typography>
                     <Typography sx={{ mb: "20px" }}>
-                        I am a Software Engineer. I enjoy learning new technologies and experimenting with random project ideas. I have worked as a Software Development Engineer for 3+ years and I am now pursuing a Master's degree in Computer Science. For at least the foreseeable future, I imagine myself growing in this field until I outgrow it :D
+                        I am a Software Engineer. I enjoy learning new technologies and experimenting with random project ideas. I have worked as a Software Development Engineer for 3+ years and I am now pursuing a Master&apos;s degree in Computer Science. For at least the foreseeable future, I imagine myself growing in this field until I outgrow it :D
                     </Typography>
                     <Typography sx={{ mb: "20px" }}>
                         I have a fervent desire to travel the world. Cycling along the coasts of Hawaii, diving into the pristine waters of the Philippines or losing myself in the breathtaking beauty of the Amalfi coast is what I want to do in my life. And every passing moment, I make sure I am working hard enough so that I realize these dreams someday.
                     </Typography>
                     <Typography sx={{ mb: "20px" }}>
-                        Whenever I am not working on a project or planning my next big trip, you'd often find me solving puzzles, shopping or reading a novel. Every person has tiny little hobbies and these are mine :)
+                        Whenever I am not working on a project or planning my next big trip, you would often find me solving puzzles, shopping or reading a novel. Every person has tiny little hobbies and these are mine :)
                     </Typography>
                     <Typography sx={{ mb: "20px" }}>
-                        That's who I am. That's Pooja Kulkarni.
+                        That&apos;s who I am. That&apos;s Pooja Kulkarni.
                     </Typography>
                 </Box>
             </Box>

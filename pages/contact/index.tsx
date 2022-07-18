@@ -86,7 +86,7 @@ function Contact() {
           mt: "30px",
           mb: "30px"
         }}>
-          Let's start a conversation!
+          Let&apos;s start a conversation!
         </Typography>
       </Box>
       <Box sx={{
@@ -111,7 +111,7 @@ function Contact() {
           </Typography>
           <Typography fontSize={cardSubTitleFontSize + "rem"} sx={{ mt: `${cardGaps}px` }}>
             <Link href="https://mailto@poojakulkarni562@gmail.com" passHref>
-              <a target="_blank">poojakulkarni562@gmail.com</a>
+              <a target="_blank" rel="noreferrer">poojakulkarni562@gmail.com</a>
             </Link>
             <span style={{ padding: `${cardGaps / 2}px` }}>|</span> San Francisco, California
           </Typography>
@@ -124,7 +124,7 @@ function Contact() {
           }}>
             <Box sx={{ padding: `${cardGaps}px` }}>
               <Link href="https://www.linkedin.com/in/poojakulkarni562/" passHref>
-                <a target="_blank">
+                <a target="_blank" rel="noreferrer">
                   <Image src="/contact/social-media-icons/linkedin.png"
                     width={iconDimensions + "px"}
                     height={iconDimensions + "px"}
@@ -134,7 +134,7 @@ function Contact() {
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
               <Link href="https://www.facebook.com/pooja.kulkarni.18400/" passHref>
-                <a target="_blank">
+                <a target="_blank" rel="noreferrer">
                   <Image src="/contact/social-media-icons/facebook.png"
                     width={iconDimensions + "px"}
                     height={iconDimensions + "px"}
@@ -144,7 +144,7 @@ function Contact() {
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
               <Link href="https://www.instagram.com/the.happy.soul444/" passHref>
-                <a target="_blank">
+                <a target="_blank" rel="noreferrer">
                   <Image src="/contact/social-media-icons/instagram.png"
                     width={iconDimensions + "px"}
                     height={iconDimensions + "px"}
@@ -154,7 +154,7 @@ function Contact() {
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
               <Link href="https://medium.com/@poojakulkarni562" passHref>
-                <a target="_blank">
+                <a target="_blank" rel="noreferrer">
                   <Image src="/contact/social-media-icons/medium.png"
                     width={iconDimensions + "px"}
                     height={iconDimensions + "px"}
