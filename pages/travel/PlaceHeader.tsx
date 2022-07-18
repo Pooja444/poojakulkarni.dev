@@ -17,7 +17,7 @@ function PlaceHeader(props: {placeName: string, midFlex: number, titleFontSize: 
                 flexDirection: "column",
                 justifyContent: "center"
             }}>
-                <Box sx={{ height: "0.08rem", backgroundColor: "#76A1A4" }}></Box>
+                <Box sx={{ height: "0.06rem", backgroundColor: "#76A1A4" }}></Box>
             </Box>
             <Box sx={{
                 flex: `${props.midFlex}`,
@@ -35,7 +35,7 @@ function PlaceHeader(props: {placeName: string, midFlex: number, titleFontSize: 
                 flexDirection: "column",
                 justifyContent: "center"
             }}>
-                <Box sx={{ height: "0.08rem", backgroundColor: "#76A1A4" }}></Box>
+                <Box sx={{ height: "0.06rem", backgroundColor: "#76A1A4" }}></Box>
             </Box>
         </Box>
     )

@@ -7,10 +7,15 @@ import { PlaceDetails } from "./placeDetails"
 import Image from 'next/image'
 
 import placeDetailsJson from './placesDetails.json'
+import Carousel from "react-material-ui-carousel"
 
 function Place(props: { place: PlaceDetails }) {
 
-    type Image = Pick<PlaceDetails["places"][0]["images"][0], "caption" | "url">
+    type Image = { "url": string, "caption": string }
+
+    const images: Image[] = props.place.places.flatMap(place => place.images)
+    let indicesMap: Map<string, number> = new Map<string, number>()
+    images.map((image, index) => indicesMap.set(image.url, index))
 
     const [widthFactor, setWidthFactor] = useState<number>(1.8)
     const [imageDimensions, setImageDimensions] = useState<number>(0)
@@ -18,18 +23,22 @@ function Place(props: { place: PlaceDetails }) {
     const [viewport, setViewport] = useState<number>(5)
     const [titleFontSize, setTitleFontSize] = useState<number>(0)
     const [modalOpen, setModalOpen] = useState<boolean>(false)
-    const [modalImage, setModalImage] = useState<Image>()
-
-    const handleOpen = (image: Image) => {
-        setModalOpen(true)
-        setModalImage(image)
-    }
-    const handleClose = () => setModalOpen(false)
+    const [imageNumber, setImageNumber] = useState<number>(0)
+    const [modalWidth, setModalWidth] = useState<number>(0)
+    const [modalHeight, setModalHeight] = useState<number>(0)
 
     useEffect(() => {
         (async () => {
-            const viewport = await getViewport()
-            setViewport(viewport)
+            setViewport(await getViewport())
+            const viewWidth = window.outerWidth
+            const viewHeight = window.outerHeight
+            if (viewWidth > viewHeight) {
+                setModalWidth(0.6 * viewWidth)
+                setModalHeight(0.7 * viewHeight)
+            } else {
+                setModalWidth(0.85 * viewWidth)
+                setModalHeight(0.5 * viewHeight)
+            }
         })()
     }, [])
 
@@ -68,9 +77,16 @@ function Place(props: { place: PlaceDetails }) {
         }
     }, [viewport])
 
+    const handleOpen = (image: Image) => {
+        setModalOpen(true)
+        setImageNumber(image.url != undefined ? indicesMap.get(image.url) ?? 0 : 0)
+    }
+
+    const handleClose = () => setModalOpen(false)
+
     return (
         <Box>
-            <NavBar></NavBar>
+            <NavBar/>
             <Box sx={{
                 pt: "90px",
                 pb: "20px",
@@ -87,14 +103,18 @@ function Place(props: { place: PlaceDetails }) {
             <Box>
                 {
                     props.place.places.map(place => (
-                        <Box>
+                        <Box key={place.name}>
                             <PlaceHeader
                                 placeName={place.name}
                                 midFlex={(place.name.length * widthFactor) / 19}
-                                key={place.name}
                                 titleFontSize={titleFontSize}
-                            ></PlaceHeader>
-                            <Box sx={{ display: "flex", flexFlow: "row wrap", justifyContent: "center", }}>
+                            />
+                            <Box sx={{
+                                display: "flex",
+                                flexFlow: "row wrap",
+                                justifyContent: "center"
+                            }}
+                            >
                                 {
                                     place.images.map(image => (
                                         <Box sx={{
@@ -103,14 +123,16 @@ function Place(props: { place: PlaceDetails }) {
                                             backgroundColor: "#DDF3FF",
                                             cursor: "pointer"
                                         }}
-                                            onClick={() => handleOpen(image)}>
+                                            onClick={() => handleOpen(image)}
+                                            key={image.url}
+                                        >
                                             <Image
                                                 src={image.url}
                                                 alt={image.url}
                                                 width={imageDimensions + "px"}
                                                 height={imageDimensions + "px"}
                                                 objectFit="contain"
-                                                key={image.url}
+                                                priority={true}
                                             ></Image>
                                         </Box>
                                     ))
@@ -129,26 +151,48 @@ function Place(props: { place: PlaceDetails }) {
                 disableAutoFocus={true}
             >
                 <Box sx={{
-                    position: 'absolute' as 'absolute',
+                    position: "relative",
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: "65vw",
-                    height: "85vh",
+                    width: modalWidth + "px",
+                    height: modalHeight + "px",
                     bgcolor: 'white',
                     boxShadow: 24,
-                    p: 4,
-                }}>
-                    <Image
-                        src={modalImage != undefined ? modalImage.url : ""}
-                        alt={modalImage != undefined ? modalImage.url : ""}
-                        layout="fill"
-                        objectFit="contain"
-                        key={modalImage != undefined ? modalImage.url : ""}
-                    ></Image>
+                }}
+                >
+                    <Carousel
+                        index={imageNumber}
+                        autoPlay={false}
+                        navButtonsAlwaysVisible={true}
+                        indicators={false}
+                        animation="fade"
+                        duration={550}
+                        key="images-carousel"
+                    >
+                        {
+                            images.map(image => (
+                                <Box sx={{
+                                    position: "relative",
+                                    width: modalWidth + "px",
+                                    height: modalHeight + "px",
+                                }}
+                                    key={image.url + "-carousel"}
+                                >
+                                    <Image
+                                        src={image.url}
+                                        alt={image.url}
+                                        layout="fill"
+                                        objectFit="contain"
+                                        priority={true}
+                                    ></Image>
+                                </Box>
+                            ))
+                        }
+                    </Carousel>
                 </Box>
-            </Modal>
-        </Box>
+            </Modal >
+        </Box >
     )
 }
 
