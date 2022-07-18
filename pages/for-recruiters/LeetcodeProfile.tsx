@@ -1,10 +1,11 @@
 import { Box } from "@mui/system"
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar"
-import { SubmissionType, SubmissionNum, UserResponse, Leetcode } from "./Leetcode"
+import { SubmissionType, Leetcode } from "./Leetcode"
 import 'react-circular-progressbar/dist/styles.css';
-import { LinearProgress, linearProgressClasses, Link, styled, Typography } from "@mui/material";
+import { LinearProgress, linearProgressClasses, styled, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from 'next/link'
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
@@ -93,7 +94,10 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                         height: "100px"
                     }}
                     >
-                        <Image src={props.data.user.profile.userAvatar} width={250} height={250}></Image><Link href="https://leetcode.com/poojakulkarni562/">
+                        <Link href="https://leetcode.com/poojakulkarni562/" passHref>
+                            <a target="_blank">
+                                <Image src={props.data.user.profile.userAvatar} width={250} height={250}></Image>
+                            </a>
                         </Link>
                     </Box>
                 </Box>

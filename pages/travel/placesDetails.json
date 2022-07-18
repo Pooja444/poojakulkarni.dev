@@ -1,0 +1,95 @@
+[
+    {
+        "title": "Hawaii",
+        "key": "hawaii",
+        "places": []
+    },
+    {
+        "title": "San Francisco",
+        "key": "san-francisco",
+        "places": [
+            {
+                "name": "Golden Gate Bridge",
+                "images": [
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco9.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco11.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco10.jpg",
+                        "caption": ""
+                    }
+                ]
+            },
+            {
+                "name": "Salesforce Tower",
+                "images": [
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco3.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco8.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco13.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco2.jpg",
+                        "caption": ""
+                    }
+                ]
+            },
+            {
+                "name": "Burlingame",
+                "images": [
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco1.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco4.jpg",
+                        "caption": ""
+                    }
+                ]
+            },
+            {
+                "name": "Street Pictures",
+                "images": [
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco14.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco7.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco6.jpg",
+                        "caption": ""
+                    }
+                ]
+            },
+            {
+                "name": "Alamo Square",
+                "images": [
+                    {
+                        "url": "/travel/USA/SanFrancisco/SanFrancisco12.jpg",
+                        "caption": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Big Sur",
+        "key": "big-sur",
+        "places": []
+    }
+]
