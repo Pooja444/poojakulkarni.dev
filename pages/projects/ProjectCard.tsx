@@ -1,7 +1,7 @@
 import { CardContent, Typography, CardActions, Button, Card, Chip } from "@mui/material"
 import { Box } from "@mui/system"
 import React from "react"
-import { Project } from "./Project"
+import Project from "../../types/Project"
 
 function ProjectCard(props: { project: Project }) {
     return (
@@ -12,24 +12,24 @@ function ProjectCard(props: { project: Project }) {
             <React.Fragment>
                 <CardContent>
                     <Typography fontSize="1.4rem">
-                        {props.project.title}
+                        {props.project?.title}
                     </Typography>
                     <Typography variant="body2" sx={{
                         textAlign: "justify",
                         mt: "15px",
                         mb: "10px"
                     }}>
-                        {props.project.description}
+                        {props.project?.description}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    {props.project.links.map(link => (
-                        <Button variant="contained" href={link.url} target="_blank" key={link.title} sx={{
+                    {props.project?.links.map(link => (
+                        <Button variant="contained" href={link.url} target="_blank" rel="noreferrer" key={"key-" + link?.title} sx={{
                             backgroundColor: "#0DCBD7",
                             color: "white",
                             fontSize: "12px"
                         }}>
-                            {link.title}
+                            {link?.title}
                         </Button>
                     ))}
                 </CardActions>
@@ -38,7 +38,7 @@ function ProjectCard(props: { project: Project }) {
                     mt: "10px",
                     pt: "10px"
                 }}>
-                    {props.project.techStack.map(tech => (
+                    {props.project?.techStack.map(tech => (
                         <Chip key={tech} label={tech} size="small" sx={{ margin: "5px" }}></Chip>
                     ))}
                 </Box>

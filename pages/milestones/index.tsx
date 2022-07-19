@@ -6,7 +6,7 @@ import MilestoneBig from './milestoneBig'
 import milestonesJson from './milestones.json'
 import { getViewport } from "../../util/util";
 import { useEffect, useState } from 'react'
-import { MilestoneInfo } from './milestoneInfo'
+import MilestoneInfo from '../../types/milestoneInfo'
 import MilestoneSmall from './milestoneSmall'
 
 const Milestones: NextPage = () => {

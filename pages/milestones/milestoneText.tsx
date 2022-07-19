@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from "@mui/material"
-import { MilestoneInfo } from "./milestoneInfo"
+import MilestoneInfo from "../../types/milestoneInfo"
 
 function MilestoneText(props: Pick<MilestoneInfo, "title" | "description" | "alignment">) {
     return (

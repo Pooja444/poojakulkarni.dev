@@ -1,7 +1,7 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { getViewport } from "../../util/util"
-import { Skills } from "./skills"
+import Skills from "../../types/skills"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 interface ResponsiveSetting {
@@ -53,7 +53,7 @@ function TechnicalSkills(props: Pick<Skills, "technicalSkills">) {
             mr: `${responsiveSetting.sideMargin}vw`,
         }}>
             {
-                props.technicalSkills.map((techSkill, index) => (
+                props.technicalSkills?.map((techSkill, index) => (
                     <Accordion disableGutters sx={{ boxShadow: "none" }} key={index}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -73,7 +73,7 @@ function TechnicalSkills(props: Pick<Skills, "technicalSkills">) {
                             padding: 0
                         }}>
                             {
-                                techSkill.skillSet.map((skill, index2) => (
+                                techSkill.skillSet?.map((skill, index2) => (
                                     <Typography sx={{
                                         flex: `1 0 ${responsiveSetting.skillFlexPercentage}%`,
                                         border: "0.01rem solid #CFE7E9",

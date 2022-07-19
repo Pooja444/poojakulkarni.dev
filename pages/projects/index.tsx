@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import NavBar from '../navbar'
 import ProjectTypeHeader from './ProjectTypeHeader'
 import projectsJson from './projects.json'
-import { Project } from './Project'
+import Project from '../../types/Project'
 import ProjectCard from './ProjectCard'
 import { getViewport } from '../../util/util'
 
@@ -57,7 +57,7 @@ function Projects() {
       <NavBar></NavBar>
       {
         [...projectsMap.keys()].map((projectTypeKey, index) => (
-          <Box>
+          <Box key={projectTypeKey + "-box"}>
             <ProjectTypeHeader name={projectsMap.get(projectTypeKey)![0].type.heading}
               midFlex={(projectsMap.get(projectTypeKey)![0].type.heading.length * headingWidthFactor) / 17}
               key={projectTypeKey}
@@ -78,8 +78,10 @@ function Projects() {
                     width: "350px",
                     ml: "1.5vw",
                     mr: "1.5vw",
-                  }}>
-                    <ProjectCard project={project} key={project.title}></ProjectCard>
+                  }}
+                    key={project.title}
+                  >
+                    <ProjectCard project={project}></ProjectCard>
                   </Box>
                 ))
               }

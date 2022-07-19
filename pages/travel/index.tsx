@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getViewport } from '../../util/util'
 import NavBar from '../navbar'
-import { PlaceCovers } from './placeCovers'
+import PlaceCovers from '../../types/placeCovers'
 import placeCoversJson from './placeCovers.json'
 
 function Travel() {
@@ -60,7 +60,7 @@ function Travel() {
             <Box sx={{
               mt: "15px",
               textAlign: "center"
-            }}>
+            }} key={travelImage.country + "-box"}>
               <Typography fontSize="1.3rem" key={travelImage.country}>
                 {travelImage.country}
               </Typography>
@@ -79,7 +79,7 @@ function Travel() {
                         height: "100%"
                       }
                     }}>
-                      <Link href="/travel/[place]" as={`/travel/${place.key}`}>
+                      <Link href="/travel/[place]" as={`/travel/${place.key}`} passHref>
                         <Image src={place.coverImage} alt={place.title} width={frameWidth + "px"} height={frameWidth - 100 + "px"}></Image>
                       </Link>
                       <Box sx={{
@@ -97,7 +97,7 @@ function Travel() {
                           fontSize: "20px",
                           position: "absolute"
                         }}>
-                          <Link href="/travel/[place]" as={`/travel/${place.key}`}>
+                          <Link href="/travel/[place]" as={`/travel/${place.key}`} passHref>
                             <Image src={place.overlayImage} alt={place.title} width={frameWidth + "px"} height={frameWidth - 100 + "px"}></Image>
                           </Link>
                         </Box>
