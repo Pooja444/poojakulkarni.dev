@@ -1,4 +1,4 @@
-export interface PlaceCovers {
+interface PlaceCovers {
     country: string
     places: {
         title: string
@@ -7,3 +7,5 @@ export interface PlaceCovers {
         overlayImage: string
     }[]
 }
+
+export default PlaceCovers

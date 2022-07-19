@@ -3,7 +3,7 @@ export interface ProjectType {
     heading: string
 }
 
-export interface Project {
+interface Project {
     title: string
     type: ProjectType
     description: string
@@ -13,3 +13,5 @@ export interface Project {
     }[]
     techStack: string[]
 }
+
+export default Project

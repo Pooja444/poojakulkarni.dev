@@ -68,7 +68,9 @@ export interface QuestionsResponse {
     questions: Questions[]
 }
 
-export interface Leetcode {
+interface Leetcode {
     user: User
     questions: Questions[]
-  }
+}
+
+export default Leetcode

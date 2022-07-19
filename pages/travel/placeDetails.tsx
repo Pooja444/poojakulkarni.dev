@@ -1,4 +1,4 @@
-export interface PlaceDetails {
+interface PlaceDetails {
     title: string
     key: string
     places: {
@@ -9,3 +9,5 @@ export interface PlaceDetails {
         }[]
     }[]
 }
+
+export default PlaceDetails
