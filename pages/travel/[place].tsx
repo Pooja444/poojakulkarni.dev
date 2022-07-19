@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { getViewport } from "../../util/util"
 import NavBar from "../navbar"
 import PlaceHeader from "./PlaceHeader"
-import { PlaceDetails } from "./placeDetails"
+import PlaceDetails from "../../types/placeDetails"
 import Image from 'next/image'
 
 import placeDetailsJson from './placesDetails.json'

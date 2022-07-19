@@ -1,6 +1,7 @@
 import { Box } from "@mui/system"
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar"
-import { SubmissionType, Leetcode } from "./Leetcode"
+import { SubmissionType } from "../../types/Leetcode"
+import Leetcode from "../../types/Leetcode";
 import 'react-circular-progressbar/dist/styles.css';
 import { LinearProgress, linearProgressClasses, styled, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -30,37 +31,39 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
     useEffect(() => {
         let difficultyBeatsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
         let totalQuestionsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
-        props.data.user.problemsSolvedBeatsStats.forEach(quesionType => {
-            difficultyBeatsMap.set(quesionType.difficulty, quesionType.percentage)
-        })
-        props.data.questions.forEach(quesionType => {
-            totalQuestionsMap.set(quesionType.difficulty, quesionType.count)
-        })
-        props.data.user.submitStats.acSubmissionNum.forEach(submission => {
-            const totalQuestions: number = totalQuestionsMap.get(submission.difficulty) ?? 0
-            const percentageSubmissions: number = (submission.count * 100) / totalQuestions
-            let submissions: SubmissionDetails = {
-                count: submission.count,
-                total: totalQuestions,
-                percentage: percentageSubmissions,
-                beats: Math.round(difficultyBeatsMap.get(submission.difficulty) ?? 0)
-            }
-            switch (submission.difficulty) {
-                case "All":
-                    setAllSubmissions(submissions)
-                    break
-                case "Easy":
-                    setEasySubmissions(submissions)
-                    break
-                case "Medium":
-                    setMediumSubmissions(submissions)
-                    break
-                case "Hard":
-                    setHardSubmissions(submissions)
-                    break
-                default: break
-            }
-        })
+        if (props.data) {
+            props.data.user.problemsSolvedBeatsStats.forEach(quesionType => {
+                difficultyBeatsMap.set(quesionType.difficulty, quesionType.percentage)
+            })
+            props.data.questions.forEach(quesionType => {
+                totalQuestionsMap.set(quesionType.difficulty, quesionType.count)
+            })
+            props.data.user.submitStats.acSubmissionNum.forEach(submission => {
+                const totalQuestions: number = totalQuestionsMap.get(submission.difficulty) ?? 0
+                const percentageSubmissions: number = (submission.count * 100) / totalQuestions
+                let submissions: SubmissionDetails = {
+                    count: submission.count,
+                    total: totalQuestions,
+                    percentage: percentageSubmissions,
+                    beats: Math.round(difficultyBeatsMap.get(submission.difficulty) ?? 0)
+                }
+                switch (submission.difficulty) {
+                    case "All":
+                        setAllSubmissions(submissions)
+                        break
+                    case "Easy":
+                        setEasySubmissions(submissions)
+                        break
+                    case "Medium":
+                        setMediumSubmissions(submissions)
+                        break
+                    case "Hard":
+                        setHardSubmissions(submissions)
+                        break
+                    default: break
+                }
+            })
+        }
     }, [])
 
     return (
@@ -96,7 +99,7 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                     >
                         <Link href="https://leetcode.com/poojakulkarni562/" passHref>
                             <a target="_blank" rel="noreferrer">
-                                <Image src={props.data.user.profile.userAvatar} width={250} height={250}></Image>
+                                <Image src={props.data?.user.profile.userAvatar} width={250} height={250}></Image>
                             </a>
                         </Link>
                     </Box>
@@ -109,7 +112,7 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                         poojakulkarni562
                     </Typography>
                     <Typography fontSize="1.2rem" sx={{ mt: "16px" }}>
-                        Rank {props.data.user.profile.ranking.toLocaleString()}
+                        Rank {props.data?.user.profile.ranking.toLocaleString()}
                     </Typography>
                 </Box>
             </Box>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import NavBar from '../navbar'
 import ProjectTypeHeader from './ProjectTypeHeader'
 import projectsJson from './projects.json'
-import { Project } from './Project'
+import Project from '../../types/Project'
 import ProjectCard from './ProjectCard'
 import { getViewport } from '../../util/util'
 

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getViewport } from '../../util/util'
 import NavBar from '../navbar'
-import { PlaceCovers } from './placeCovers'
+import PlaceCovers from '../../types/placeCovers'
 import placeCoversJson from './placeCovers.json'
 
 function Travel() {

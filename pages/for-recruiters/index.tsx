@@ -2,11 +2,12 @@ import NavBar from '../navbar'
 import { Box, Typography } from '@mui/material'
 import TechnicalSkills from './technicalSkills'
 import { useEffect, useState } from 'react';
-import { Skills } from './skills';
+import Skills from '../../types/skills';
 import skillsJson from './skills.json'
 import { getViewport } from '../../util/util';
 import LeetcodeProfile from './LeetcodeProfile';
-import { Leetcode, Questions, QuestionsResponse, User, UserResponse } from './Leetcode';
+import Leetcode from '../../types/Leetcode';
+import { Questions, QuestionsResponse, User, UserResponse } from '../../types/Leetcode';
 import Link from 'next/link';
 
 function ForRecruiters(props: { data: Leetcode }) {

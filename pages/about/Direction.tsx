@@ -27,7 +27,7 @@ const defaults = {
 
 function Direction(props: DirectionProps) {
 
-    const signTextId = `sign-${props.text.replace(' ','')}`
+    const signTextId = props.text != undefined ? `sign-${props.text.replace(' ','')}` : "sign-initial"
 
     const handleDirectionHover = () => {
         var elem = document.getElementById(signTextId)

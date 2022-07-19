@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material"
-import { MilestoneInfo } from "./milestoneInfo";
+import MilestoneInfo from "../../types/milestoneInfo";
 import MilestoneText from "./milestoneText";
 
 function MilestoneSmall(props: MilestoneInfo & {viewport: number}) {
