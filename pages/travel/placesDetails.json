@@ -2,7 +2,45 @@
     {
         "title": "Hawaii",
         "key": "hawaii",
-        "places": []
+        "places": [
+            {
+                "name": "Botanical Garden, Big Island of Hawaii",
+                "images": [
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii1.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii2.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii4.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii5.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii6.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii7.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii8.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/Hawaii/Hawaii9.jpg",
+                        "caption": ""
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "San Francisco",
