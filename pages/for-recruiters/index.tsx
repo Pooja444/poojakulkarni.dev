@@ -185,7 +185,7 @@ function ForRecruiters(props: { data: Leetcode }) {
           fontSize: "1.2rem",
           textAlign: "center"
         }}>
-          Want to have a look at all my projects? Checkout my <Link href="/projects"><span style={{color: "blue"}}><u>projects</u></span></Link> section or take a look at my <u><a style={{ color: "blue" }} href="https://github.com/Pooja444" target="_blank" rel="noreferrer">Github profile</a></u> for a more detailed view!
+          Want to have a look at all my projects? Checkout my <Link href="/projects"><span style={{color: "blue", cursor: "pointer"}}><u>projects</u></span></Link> section or take a look at my <u><a style={{ color: "blue" }} href="https://github.com/Pooja444" target="_blank" rel="noreferrer">Github profile</a></u> for a more detailed view!
         </Typography>
       </Box>
     </Box>
