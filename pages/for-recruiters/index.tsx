@@ -60,7 +60,7 @@ function ForRecruiters(props: { data: Leetcode }) {
         <Typography fontSize="1.2rem" color="white">
           {"<<< "}<b>Currently looking for roles:</b>
           <Box component="span" sx={{ ml: "10px" }}>
-            Software Engineer II (Full-Stack/Backend/API Development/Distributed Systems) {" >>>"}
+            Software Engineer I/II (Full-Stack/Backend/API Development/Distributed Systems) {" >>>"}
           </Box>
         </Typography>
       </Box>
