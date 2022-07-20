@@ -128,6 +128,49 @@
     {
         "title": "Big Sur",
         "key": "big-sur",
-        "places": []
+        "places": [
+            {
+                "name": "Big Sur overlook",
+                "images": [
+                    {
+                        "url": "/travel/USA/BigSur/BigSur1.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/BigSur/BigSur2.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/BigSur/BigSur3.jpg",
+                        "caption": ""
+                    }
+                ]
+            },
+            {
+                "name": "Pfeiffer Beach",
+                "images": [
+                    {
+                        "url": "/travel/USA/BigSur/BigSur4.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/BigSur/BigSur6.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/BigSur/BigSur7.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/BigSur/BigSur8.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "url": "/travel/USA/BigSur/BigSur9.jpg",
+                        "caption": ""
+                    }
+                ]
+            }
+        ]
     }
 ]
