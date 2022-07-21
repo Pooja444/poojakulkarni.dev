@@ -1,14 +1,15 @@
 import { Box } from "@mui/system"
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar"
-import { SubmissionType } from "../../types/Leetcode"
+import { Questions, QuestionsResponse, SubmissionType, User, UserResponse } from "../../types/Leetcode"
 import Leetcode from "../../types/Leetcode";
 import 'react-circular-progressbar/dist/styles.css';
 import { LinearProgress, linearProgressClasses, styled, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from 'next/link'
+import loadingGif from '../../public/for-recruiters/loading.gif'
 
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+const BorderLinearProgress = styled(LinearProgress)(() => ({
     height: 10,
     borderRadius: 5
 }));
@@ -20,8 +21,10 @@ interface SubmissionDetails {
     beats: number
 }
 
-function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
+function LeetcodeProfile(props: { sideMargins: number }) {
 
+    const [leetcodeData, setLeetcodeData] = useState<Leetcode>()
+    const [isLoading, setLoading] = useState(false)
     const initialObject: SubmissionDetails = { count: 0, total: 0, percentage: 0, beats: 0 }
     const [allSubmissions, setAllSubmissions] = useState<SubmissionDetails>(initialObject)
     const [easySubmissions, setEasySubmissions] = useState<SubmissionDetails>(initialObject)
@@ -29,16 +32,34 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
     const [hardSubmissions, setHardSubmissions] = useState<SubmissionDetails>(initialObject)
 
     useEffect(() => {
+        (async () => {
+            setLoading(true)
+            const userData = await fetch('https://leetprofileserver.herokuapp.com/profile/poojakulkarni562')
+            const questionsData = await fetch('https://leetprofileserver.herokuapp.com/questions')
+            const userResponse: UserResponse = (await userData.json()) as UserResponse
+            const questionsResponse: QuestionsResponse = (await questionsData.json()) as QuestionsResponse
+            const user: User = userResponse.userProfile
+            const questions: Questions[] = questionsResponse.questions
+            const leetcodeData: Leetcode = {
+                user: user,
+                questions: questions
+            }
+            setLeetcodeData(leetcodeData)
+            setLoading(false)
+        })()
+    }, [])
+
+    useEffect(() => {
         let difficultyBeatsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
         let totalQuestionsMap: Map<SubmissionType, number> = new Map<SubmissionType, number>()
-        if (props.data) {
-            props.data.user.problemsSolvedBeatsStats.forEach(quesionType => {
+        if (leetcodeData) {
+            leetcodeData.user.problemsSolvedBeatsStats.forEach(quesionType => {
                 difficultyBeatsMap.set(quesionType.difficulty, quesionType.percentage)
             })
-            props.data.questions.forEach(quesionType => {
+            leetcodeData.questions.forEach(quesionType => {
                 totalQuestionsMap.set(quesionType.difficulty, quesionType.count)
             })
-            props.data.user.submitStats.acSubmissionNum.forEach(submission => {
+            leetcodeData.user.submitStats.acSubmissionNum.forEach(submission => {
                 const totalQuestions: number = totalQuestionsMap.get(submission.difficulty) ?? 0
                 const percentageSubmissions: number = (submission.count * 100) / totalQuestions
                 let submissions: SubmissionDetails = {
@@ -64,7 +85,7 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                 }
             })
         }
-    }, [])
+    }, [leetcodeData])
 
     return (
         <Box sx={{
@@ -99,7 +120,7 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                     >
                         <Link href="https://leetcode.com/poojakulkarni562/" passHref>
                             <a target="_blank" rel="noreferrer">
-                                <Image src={props.data?.user.profile.userAvatar} width={250} height={250}></Image>
+                                <Image src={leetcodeData?.user.profile.userAvatar ?? "/random"} width={250} height={250}></Image>
                             </a>
                         </Link>
                     </Box>
@@ -112,7 +133,7 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                         poojakulkarni562
                     </Typography>
                     <Typography fontSize="1.2rem" sx={{ mt: "16px" }}>
-                        Rank {props.data?.user.profile.ranking.toLocaleString()}
+                        Rank {leetcodeData?.user.profile.ranking.toLocaleString()}
                     </Typography>
                 </Box>
             </Box>
@@ -127,14 +148,20 @@ function LeetcodeProfile(props: { data: Leetcode, sideMargins: number }) {
                         maxWidth: "110px",
                         maxHeight: "110px"
                     }}>
-                        <CircularProgressbar
-                            value={allSubmissions.percentage ?? 0}
-                            text={`${allSubmissions.count ?? 0}`}
-                            styles={buildStyles({
-                                pathColor: 'rgb(255 161 22)',
-                                textColor: 'rgb(255 161 22)'
-                            })}
-                        />
+                        {!isLoading &&
+                            <CircularProgressbar
+                                value={allSubmissions.percentage ?? 0}
+                                text={`${allSubmissions.count ?? 0}`}
+                                styles={buildStyles({
+                                    pathColor: 'rgb(255 161 22)',
+                                    textColor: 'rgb(255 161 22)'
+                                })}
+                            />
+                        }
+                        {
+                            isLoading &&
+                            <Image src={loadingGif} alt="loading..."></Image>
+                        }
                     </Box>
                 </Box>
             </Box>

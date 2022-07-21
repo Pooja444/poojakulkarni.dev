@@ -10,11 +10,12 @@ import Leetcode from '../../types/Leetcode';
 import { Questions, QuestionsResponse, User, UserResponse } from '../../types/Leetcode';
 import Link from 'next/link';
 
-function ForRecruiters(props: { data: Leetcode }) {
+function ForRecruiters() {
 
   const [skills] = useState<Skills>(skillsJson as Skills)
   const [sideMargins, setSideMargins] = useState(15)
   const [viewport, setViewport] = useState(5)
+
 
   useEffect(() => {
     (async () => {
@@ -150,7 +151,7 @@ function ForRecruiters(props: { data: Leetcode }) {
         mt: "40px",
         mb: "20px",
       }}>
-        <LeetcodeProfile data={props.data} sideMargins={sideMargins}></LeetcodeProfile>
+        <LeetcodeProfile sideMargins={sideMargins}></LeetcodeProfile>
       </Box>
       <Box sx={{
         ml: `${sideMargins}vw`,
@@ -185,28 +186,28 @@ function ForRecruiters(props: { data: Leetcode }) {
           fontSize: "1.2rem",
           textAlign: "center"
         }}>
-          Want to have a look at all my projects? Checkout my <Link href="/projects"><span style={{color: "blue", cursor: "pointer"}}><u>projects</u></span></Link> section or take a look at my <u><a style={{ color: "blue" }} href="https://github.com/Pooja444" target="_blank" rel="noreferrer">Github profile</a></u> for a more detailed view!
+          Want to have a look at all my projects? Checkout my <Link href="/projects"><span style={{ color: "blue", cursor: "pointer" }}><u>projects</u></span></Link> section or take a look at my <u><a style={{ color: "blue" }} href="https://github.com/Pooja444" target="_blank" rel="noreferrer">Github profile</a></u> for a more detailed view!
         </Typography>
       </Box>
     </Box>
   )
 }
 
-export const getServerSideProps = async () => {
-  const userData = await fetch('https://leetprofileserver.herokuapp.com/profile/poojakulkarni562')
-  const questionsData = await fetch('https://leetprofileserver.herokuapp.com/questions')
-  const userResponse: UserResponse = (await userData.json()) as UserResponse
-  const questionsResponse: QuestionsResponse = (await questionsData.json()) as QuestionsResponse
-  const user: User = userResponse.userProfile
-  const questions: Questions[] = questionsResponse.questions
-  const data: Leetcode = {
-    user: user,
-    questions: questions
-  }
+// export const getServerSideProps = async () => {
+//   const userData = await fetch('https://leetprofileserver.herokuapp.com/profile/poojakulkarni562')
+//   const questionsData = await fetch('https://leetprofileserver.herokuapp.com/questions')
+//   const userResponse: UserResponse = (await userData.json()) as UserResponse
+//   const questionsResponse: QuestionsResponse = (await questionsData.json()) as QuestionsResponse
+//   const user: User = userResponse.userProfile
+//   const questions: Questions[] = questionsResponse.questions
+//   const data: Leetcode = {
+//     user: user,
+//     questions: questions
+//   }
 
-  return {
-    props: { data }
-  }
-}
+//   return {
+//     props: { data }
+//   }
+// }
 
 export default ForRecruiters
