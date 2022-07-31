@@ -1,13 +1,12 @@
 import { Box } from "@mui/system"
-import { buildStyles, CircularProgressbar } from "react-circular-progressbar"
+import { buildStyles, CircularProgressbarWithChildren } from "react-circular-progressbar"
 import { Questions, QuestionsResponse, SubmissionType, User, UserResponse } from "../../types/Leetcode"
 import Leetcode from "../../types/Leetcode";
 import 'react-circular-progressbar/dist/styles.css';
-import { LinearProgress, linearProgressClasses, styled, Typography } from "@mui/material";
+import { CircularProgress, LinearProgress, linearProgressClasses, styled, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from 'next/link'
-import loadingGif from '../../public/for-recruiters/loading.gif'
 
 const BorderLinearProgress = styled(LinearProgress)(() => ({
     height: 10,
@@ -30,6 +29,15 @@ function LeetcodeProfile(props: { sideMargins: number }) {
     const [easySubmissions, setEasySubmissions] = useState<SubmissionDetails>(initialObject)
     const [mediumSubmissions, setMediumSubmissions] = useState<SubmissionDetails>(initialObject)
     const [hardSubmissions, setHardSubmissions] = useState<SubmissionDetails>(initialObject)
+    const [totalSolved, setTotalSolved] = useState<string>()
+
+    const handleSolvedProblemsMouseEnter = () => {
+        setTotalSolved(Math.round(allSubmissions.percentage) + "%")
+    }
+
+    const handleSolvedProblemsMouseLeave = () => {
+        setTotalSolved(`${allSubmissions.count}`)
+    }
 
     useEffect(() => {
         (async () => {
@@ -71,6 +79,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                 switch (submission.difficulty) {
                     case "All":
                         setAllSubmissions(submissions)
+                        setTotalSolved(`${submissions.count}`)
                         break
                     case "Easy":
                         setEasySubmissions(submissions)
@@ -89,7 +98,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
 
     return (
         <Box sx={{
-            border: "0.1rem solid #EACDB3",
+            border: "0.075rem solid #EACDB3",
             borderRadius: "15px",
             mt: `${props.sideMargins}px`,
             mb: `${props.sideMargins}px`,
@@ -111,7 +120,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                 }}
             >
                 <Box sx={{ flex: 0.7 }}>
-                    <Box component="div" sx={{
+                    <Box sx={{
                         borderRadius: "0.5rem",
                         overflow: 'hidden',
                         width: "100px",
@@ -120,7 +129,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                     >
                         <Link href="https://leetcode.com/poojakulkarni562/" passHref>
                             <a target="_blank" rel="noreferrer">
-                                <Image src={leetcodeData?.user.profile.userAvatar ?? "/random"} width={250} height={250}></Image>
+                                <Image src={leetcodeData?.user.profile.userAvatar ?? "/"} width={250} height={250}></Image>
                             </a>
                         </Link>
                     </Box>
@@ -137,30 +146,44 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                     </Typography>
                 </Box>
             </Box>
-            <Box sx={{ flex: 0.7, minWidth: "300px", mt: "10px", mb: "10px" }}>
-                <Box sx={{ mb: "20px", display: "flex", justifyContent: "center" }}>
+            <Box sx={{
+                flex: 0.7,
+                minWidth: "300px",
+                mt: "10px",
+                mb: "10px"
+            }}>
+                <Box sx={{
+                    mb: "20px",
+                    display: "flex",
+                    justifyContent: "center"
+                }}>
                     <Typography fontSize="1.3rem">
                         Solved Problems
                     </Typography>
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <Box sx={{
-                        maxWidth: "110px",
-                        maxHeight: "110px"
-                    }}>
+                    <Box sx={{ maxWidth: "110px", maxHeight: "110px" }}
+                        onMouseEnter={handleSolvedProblemsMouseEnter}
+                        onMouseLeave={handleSolvedProblemsMouseLeave}
+                    >
                         {!isLoading &&
-                            <CircularProgressbar
+                            <CircularProgressbarWithChildren
                                 value={allSubmissions.percentage ?? 0}
-                                text={`${allSubmissions.count ?? 0}`}
+                                text={`${totalSolved}`}
                                 styles={buildStyles({
                                     pathColor: 'rgb(255 161 22)',
                                     textColor: 'rgb(255 161 22)'
                                 })}
-                            />
+                                strokeWidth={5}
+                            >
+                                <Typography sx={{ marginTop: "45px" }} fontSize="0.8rem">
+                                    Solved
+                                </Typography>
+                            </CircularProgressbarWithChildren>
                         }
                         {
                             isLoading &&
-                            <Image src={loadingGif} alt="loading..."></Image>
+                            <CircularProgress color="success" />
                         }
                     </Box>
                 </Box>
@@ -173,7 +196,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                         <Typography sx={{ flex: 1 }}>Beats {easySubmissions.beats}%</Typography>
                     </Box>
                     <BorderLinearProgress
-                        variant="determinate"
+                        variant={isLoading ? 'indeterminate' : 'determinate'}
                         value={easySubmissions.percentage ?? 0}
                         sx={{
                             backgroundColor: "rgba(44,187,93,.25)",
@@ -191,7 +214,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                         <Typography sx={{ flex: 1 }}>Beats {mediumSubmissions.beats}%</Typography>
                     </Box>
                     <BorderLinearProgress
-                        variant="determinate"
+                        variant={isLoading ? 'indeterminate' : 'determinate'}
                         value={mediumSubmissions.percentage ?? 0}
                         sx={{
                             backgroundColor: "rgba(255,192,30,.25)",
@@ -209,7 +232,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                         <Typography sx={{ flex: 1 }}>Beats {hardSubmissions.beats}%</Typography>
                     </Box>
                     <BorderLinearProgress
-                        variant="determinate"
+                        variant={isLoading ? 'indeterminate' : 'determinate'}
                         value={hardSubmissions.percentage ?? 0}
                         sx={{
                             backgroundColor: "rgba(239,71,67,.25)",
