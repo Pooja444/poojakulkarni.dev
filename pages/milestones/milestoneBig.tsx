@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material"
 import MilestoneInfo from "../../types/milestoneInfo";
-import MilestoneText from "./milestoneText";
+import MilestoneText from "./MilestoneText";
 
 function MilestoneBig(props: MilestoneInfo) {
     return (
@@ -8,23 +8,25 @@ function MilestoneBig(props: MilestoneInfo) {
             display: "flex",
             flexDirection: "row",
         }}>
-            <Box sx={{
-                flex: "2",
-                height: "120px",
-                display: props.alignment == "right" ? "none" : "block",
-                mt: "20px",
-            }}>
-                <MilestoneText
-                    title={props.title}
-                    description={props.description}
-                    alignment={props.alignment}
-                    key={"text" + props.id}
-                ></MilestoneText>
-            </Box>
+            {
+                props.alignment == "left" &&
+                <Box sx={{
+                    flex: "2",
+                    height: "120px",
+                    mt: "20px",
+                }}>
+                    <MilestoneText
+                        title={props.title}
+                        description={props.description}
+                        alignment={props.alignment}
+                        key={"text" + props.id}
+                    ></MilestoneText>
+                </Box>
+            }
             <Box sx={{ flex: "1", height: "120px" }}>
                 <Box sx={{
                     position: "absolute" as "absolute",
-                    left: props.alignment == "left" ? "43.4vw" : "51.3vw",
+                    left: props.alignment == "left" ? "41.5vw" : "53.2vw",
                     height: "45px",
                     width: "75px",
                     backgroundColor: "#FCC256",
@@ -35,7 +37,7 @@ function MilestoneBig(props: MilestoneInfo) {
                 </Box>
                 <Box sx={{
                     position: "absolute" as "absolute",
-                    left: props.alignment == "left" ? "43.4vw" : "51.3vw",
+                    left: props.alignment == "left" ? "41.5vw" : "53.2vw",
                     height: "120px",
                     width: "75px",
                     backgroundColor: "#ffffff",
@@ -48,19 +50,21 @@ function MilestoneBig(props: MilestoneInfo) {
                     </Typography>
                 </Box>
             </Box>
-            <Box sx={{
-                flex: "2",
-                height: "120px",
-                display: props.alignment == "left" ? "none" : "block",
-                mt: "20px"
-            }}>
-                <MilestoneText
-                    title={props.title}
-                    description={props.description}
-                    alignment={props.alignment}
-                    key={"text" + props.id}
-                ></MilestoneText>
-            </Box>
+            {
+                props.alignment == "right" &&
+                <Box sx={{
+                    flex: "2",
+                    height: "120px",
+                    mt: "20px"
+                }}>
+                    <MilestoneText
+                        title={props.title}
+                        description={props.description}
+                        alignment={props.alignment}
+                        key={"text" + props.id}
+                    ></MilestoneText>
+                </Box>
+            }
         </Box>
     )
 }

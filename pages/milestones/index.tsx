@@ -2,12 +2,12 @@ import type { NextPage } from 'next'
 import NavBar from '../navbar'
 import { Box, Typography } from '@mui/material'
 import Road from './road'
-import MilestoneBig from './milestoneBig'
+import MilestoneBig from './MilestoneBig'
 import milestonesJson from './milestones.json'
 import { getViewport } from "../../util/util";
 import { useEffect, useState } from 'react'
 import MilestoneInfo from '../../types/milestoneInfo'
-import MilestoneSmall from './milestoneSmall'
+import MilestoneSmall from './MilestoneSmall'
 
 const Milestones: NextPage = () => {
 
@@ -21,6 +21,7 @@ const Milestones: NextPage = () => {
       // sm, md and xs ==> only right alignment
       const viewport = await getViewport()
       setViewport(viewport)
+      console.log(viewport)
     })()
   }, [])
 
@@ -34,14 +35,14 @@ const Milestones: NextPage = () => {
         roadLengthFactor = 24
         break
       case 3:
-        roadLengthFactor = 19
+        roadLengthFactor = 20
         break
       case 4:
-        roadLengthFactor = 19
+        roadLengthFactor = 21.4
         break
       case 5:
       default:
-        roadLengthFactor = 23
+        roadLengthFactor = 22.5
     }
     setRoadLength(milestones.length * roadLengthFactor)
   }, [[], [milestones]])
