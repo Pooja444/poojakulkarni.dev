@@ -1,6 +1,6 @@
 import NavBar from '../navbar'
 import { Box, Typography } from '@mui/material'
-import TechnicalSkills from './TechnicalSkills'
+import TechnicalSkills from './TechnicalSkill'
 import { useEffect, useState } from 'react';
 import Skills from '../../types/skills';
 import skillsJson from './skills.json'
