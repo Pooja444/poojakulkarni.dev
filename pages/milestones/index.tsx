@@ -2,12 +2,12 @@ import type { NextPage } from 'next'
 import NavBar from '../navbar'
 import { Box, Typography } from '@mui/material'
 import Road from './road'
-import MilestoneBig from './MilestoneBigs'
+import MilestoneBig from './MilestoneBig'
 import milestonesJson from './milestones.json'
 import { getViewport } from "../../util/util";
 import { useEffect, useState } from 'react'
 import MilestoneInfo from '../../types/milestoneInfo'
-import MilestoneSmall from './MilestoneSmalls'
+import MilestoneSmall from './MilestoneSmall'
 
 const Milestones: NextPage = () => {
 
