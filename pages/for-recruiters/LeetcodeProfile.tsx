@@ -42,8 +42,8 @@ function LeetcodeProfile(props: { sideMargins: number }) {
     useEffect(() => {
         (async () => {
             setLoading(true)
-            const userData = await fetch('https://leetprofileserver.herokuapp.com/profile/poojakulkarni562')
-            const questionsData = await fetch('https://leetprofileserver.herokuapp.com/questions')
+            const userData = await fetch('https://leetprofile-server.onrender.com/profile/poojakulkarni562')
+            const questionsData = await fetch('https://leetprofile-server.onrender.com/questions')
             const userResponse: UserResponse = (await userData.json()) as UserResponse
             const questionsResponse: QuestionsResponse = (await questionsData.json()) as QuestionsResponse
             const user: User = userResponse.userProfile
