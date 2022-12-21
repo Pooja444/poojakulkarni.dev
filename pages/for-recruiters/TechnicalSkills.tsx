@@ -57,13 +57,11 @@ function TechnicalSkills(props: Pick<Skills, "technicalSkills">) {
                     <Accordion disableGutters sx={{ boxShadow: "none" }} key={index}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
-                            sx={{
-                                backgroundColor: "#CFE7E9"
-                            }}
+                            sx={{ backgroundColor: "#CFE7E9" }}
                         >
-                            <Typography
-                                fontSize="1.1rem"
-                            >{techSkill.skillName}</Typography>
+                            <Typography fontSize="1.1rem">
+                                {techSkill.skillName}
+                            </Typography>
                         </AccordionSummary>
                         <AccordionDetails sx={{
                             display: "flex",

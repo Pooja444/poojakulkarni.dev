@@ -1,6 +1,5 @@
 import { Box, Button, Typography } from "@mui/material"
 
-
 interface DirectionProps {
     link: string,
     polygon: string,
@@ -15,7 +14,6 @@ interface DirectionProps {
     textRotate?: string
 }
 
-
 const defaults = {
     height: "7vh",
     width: "225.2px",
@@ -24,21 +22,20 @@ const defaults = {
     scale: "scale(1.2)"
 }
 
-
 function Direction(props: DirectionProps) {
 
-    const signTextId = props.text != undefined ? `sign-${props.text.replace(' ','')}` : "sign-initial"
+    const signTextId = props.text != undefined ? `sign-${props.text.replace(' ', '')}` : "sign-initial"
 
     const handleDirectionHover = () => {
         var elem = document.getElementById(signTextId)
-        if(elem != undefined) {
+        if (elem != undefined) {
             elem.style.transform = `${props.textRotate ?? defaults.textRotate} ${defaults.scale}`
         }
     }
 
     const handleDirectionHoverEnd = () => {
         var elem = document.getElementById(signTextId)
-        if(elem != undefined) {
+        if (elem != undefined) {
             elem.style.transform = `${props.textRotate ?? defaults.textRotate}`
         }
     }
@@ -55,7 +52,10 @@ function Direction(props: DirectionProps) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
-    }} onMouseEnter={handleDirectionHover} onMouseLeave={handleDirectionHoverEnd}>
+    }}
+        onMouseEnter={handleDirectionHover}
+        onMouseLeave={handleDirectionHoverEnd}
+    >
         <Button href={`/${props.link}`} sx={{
             textTransform: "none",
             width: props.width ?? defaults.width
@@ -66,7 +66,10 @@ function Direction(props: DirectionProps) {
                 transform: props.textRotate ?? defaults.textRotate,
                 marginTop: props.textMarginTop ?? defaults.textMarginTop,
                 transition: "all 0.2s ease-in-out 0.1s"
-            }} color="white" id={signTextId}>
+            }}
+                color="white"
+                id={signTextId}
+            >
                 {props.text}
             </Typography>
         </Button>

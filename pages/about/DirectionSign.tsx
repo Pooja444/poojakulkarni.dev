@@ -3,15 +3,14 @@ import { useState, useEffect } from "react"
 import { getViewport } from "../../util/util"
 import Direction from "./Direction"
 
-
 function DirectionSign() {
 
     const [scale, setScale] = useState("1")
-    
+
     useEffect(() => {
         (async () => {
             const data = await getViewport()
-            setScale(data < 3 ? "0.9": "1")
+            setScale(data < 3 ? "0.9" : "1")
         })()
     }, [])
 
