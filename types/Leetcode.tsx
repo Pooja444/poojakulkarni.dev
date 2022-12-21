@@ -5,30 +5,23 @@ export interface ErrorResponse {
     errorMessage: string
 }
 
-export interface UserResponse {
-    isError: boolean
-    error?: ErrorResponse
-    userProfile: User
-}
-
-export interface Contributions {
-    points: number,
-    questionCount: number,
-    testcaseCount: number,
-}
-
 export interface Profile {
     realName: string
     websites: string[]
     countryName: string
-    skillTags: string[],
+    skillTags: string[]
     company: string
     school: string
     starRating: number
     aboutMe: string
     userAvatar: string
-    reputation: number
     ranking: number
+}
+
+export interface ProfileResponse {
+    isError: boolean
+    error?: ErrorResponse
+    profile: Profile
 }
 
 export interface SubmissionNum {
@@ -37,24 +30,32 @@ export interface SubmissionNum {
     submissions: number
 }
 
-export interface SubmitStats {
+export interface AcSubmissionNum {
     acSubmissionNum: SubmissionNum[]
-    totalSubmissionNum: SubmissionNum[]
 }
 
-export interface ProblemsSolvedBeatsStats {
+export interface SubmitStatsResponse {
+    isError: boolean
+    error?: ErrorResponse
+    submitStats: AcSubmissionNum
+}
+
+export interface BeatsStats {
     difficulty: SubmissionType
     percentage: number
 }
 
+export interface ProblemsSolvedBeatsStatsResponse {
+    isError: boolean
+    error?: ErrorResponse
+    problemsSolvedBeatsStats: BeatsStats[]
+}
+
 export interface User {
     username: string
-    socialAccounts: string
-    githubUrl: string
-    contributions: Contributions[]
     profile: Profile
-    submitStats: SubmitStats
-    problemsSolvedBeatsStats: ProblemsSolvedBeatsStats[]
+    submitStats: AcSubmissionNum
+    problemsSolvedBeatsStats: BeatsStats[]
 }
 
 export interface Questions {

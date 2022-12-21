@@ -1,6 +1,6 @@
 import { Box } from "@mui/system"
 import { buildStyles, CircularProgressbarWithChildren } from "react-circular-progressbar"
-import { Questions, QuestionsResponse, SubmissionType, User, UserResponse } from "../../types/Leetcode"
+import { AcSubmissionNum, BeatsStats, ProblemsSolvedBeatsStatsResponse, Profile, ProfileResponse, Questions, QuestionsResponse, SubmissionType, SubmitStatsResponse, User } from "../../types/Leetcode"
 import Leetcode from "../../types/Leetcode";
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgress, LinearProgress, linearProgressClasses, styled, Typography } from "@mui/material";
@@ -42,11 +42,30 @@ function LeetcodeProfile(props: { sideMargins: number }) {
     useEffect(() => {
         (async () => {
             setLoading(true)
-            const userData = await fetch('https://leetprofile-server.onrender.com/profile/poojakulkarni562')
+            const username = "poojakulkarni562"
+
+            const userData = await fetch(`https://leetprofile-server.onrender.com/user/${username}/profile`)
+            const submitStatsData = await fetch(`https://leetprofile-server.onrender.com/user/${username}/submit-stats`)
+            const problemsSolvedBeatsStatsData = await fetch(`https://leetprofile-server.onrender.com/user/${username}/problems-solved-beats-stats`)
             const questionsData = await fetch('https://leetprofile-server.onrender.com/questions')
-            const userResponse: UserResponse = (await userData.json()) as UserResponse
+
+            const profileResponse: ProfileResponse = (await userData.json()) as ProfileResponse
+            const submitStatsResponse: SubmitStatsResponse = (await submitStatsData.json()) as SubmitStatsResponse
+            const problemsSolvedBeatsStatsResponse: ProblemsSolvedBeatsStatsResponse = (await problemsSolvedBeatsStatsData.json()) as ProblemsSolvedBeatsStatsResponse
+
             const questionsResponse: QuestionsResponse = (await questionsData.json()) as QuestionsResponse
-            const user: User = userResponse.userProfile
+
+            const profile: Profile = profileResponse.profile
+            const submitStats: AcSubmissionNum = submitStatsResponse.submitStats
+            const problemsSolvedBeatsStats: BeatsStats[] = problemsSolvedBeatsStatsResponse.problemsSolvedBeatsStats
+
+            const user: User = {
+                username: username,
+                profile: profile,
+                submitStats: submitStats,
+                problemsSolvedBeatsStats: problemsSolvedBeatsStats
+            }
+
             const questions: Questions[] = questionsResponse.questions
             const leetcodeData: Leetcode = {
                 user: user,
@@ -129,11 +148,11 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                     >
                         <Link href="https://leetcode.com/poojakulkarni562/" passHref>
                             <a target="_blank" rel="noreferrer">
-                                <Image src={leetcodeData?.user.profile.userAvatar ?? "/"} width={250} height={250}></Image>
-                            </a>
-                        </Link>
-                    </Box>
-                </Box>
+                                <Image src={leetcodeData?.user.profile.userAvatar ?? "/random"} alt="leetcode-profile-pic" width={250} height={250}></Image>
+                            </a >
+                        </Link >
+                    </Box >
+                </Box >
                 <Box sx={{ flex: 1 }}>
                     <Typography fontSize="1.2rem">
                         Pooja Kulkarni
@@ -145,7 +164,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                         Rank {leetcodeData?.user.profile.ranking.toLocaleString()}
                     </Typography>
                 </Box>
-            </Box>
+            </Box >
             <Box sx={{
                 flex: 0.7,
                 minWidth: "300px",
@@ -244,7 +263,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                     />
                 </Box>
             </Box>
-        </Box>
+        </Box >
     )
 }
 
