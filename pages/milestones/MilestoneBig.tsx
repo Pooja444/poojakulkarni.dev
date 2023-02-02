@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material";
 import MilestoneInfo from "../../types/milestoneInfo";
 import MilestoneText from "./MilestoneText";
 

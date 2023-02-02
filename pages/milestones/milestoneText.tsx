@@ -1,5 +1,5 @@
-import { Card, CardContent, Typography } from "@mui/material"
-import MilestoneInfo from "../../types/milestoneInfo"
+import { Card, CardContent, Typography } from "@mui/material";
+import MilestoneInfo from "../../types/milestoneInfo";
 
 function MilestoneText(props: Pick<MilestoneInfo, "title" | "description" | "alignment">) {
     return (
@@ -7,7 +7,7 @@ function MilestoneText(props: Pick<MilestoneInfo, "title" | "description" | "ali
             width: props.alignment == undefined ? "65vw" : "27.7vw",
             ml: props.alignment == undefined ? "5vw" : (props.alignment == "right" ? "27.2vw" : "11.5vw"),
             backgroundColor: "#FBF3E9"
-            }}>
+        }}>
             <CardContent sx={{ padding: 0 }}>
                 <Typography
                     sx={{
