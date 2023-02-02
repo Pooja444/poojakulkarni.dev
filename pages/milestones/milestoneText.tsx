@@ -5,7 +5,7 @@ function MilestoneText(props: Pick<MilestoneInfo, "title" | "description" | "ali
     return (
         <Card sx={{
             width: props.alignment == undefined ? "65vw" : "27.7vw",
-            ml: props.alignment == undefined ? "2vw" : (props.alignment == "right" ? "26vw" : "13vw"),
+            ml: props.alignment == undefined ? "5vw" : (props.alignment == "right" ? "27.2vw" : "11.5vw"),
             backgroundColor: "#FBF3E9"
             }}>
             <CardContent sx={{ padding: 0 }}>
