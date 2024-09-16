@@ -9,88 +9,110 @@ import DirectionSign from './DirectionSign'
  * Parallax view source: https://codesandbox.io/embed/r0yEkozrw?view=preview
  */
 
+interface ResponsiveSetting {
+  storyMargin: string
+  introHeight: number
+  introLeft: number
+  introPaddingLeft: number
+  introFontSize: number
+  introDescrFontSize: number
+  introImage: string
+  introMaxBlur: number
+}
+
 
 function About() {
 
-  const [storyMargin, setStoryMargins] = useState("5vwx")
-  const [introHeight, setIntroHeight] = useState(100)
-  const [introLeft, setIntroLeft] = useState(0)
-  const [introPaddingLeft, setIntroPaddingLeft] = useState(0)
-  const [introFontSize, setIntroFontSize] = useState(1)
-  const [introDescrFontSize, setIntroDescrFontSize] = useState(1)
-  const [introImage, setIntroImage] = useState("")
-  const [introMaxBlur, setIntroMaxBlur] = useState(0)
+  const [responsiveSetting, setResponsiveSetting] = useState<ResponsiveSetting>({
+    storyMargin: "5vw",
+    introHeight: 100,
+    introLeft: 0,
+    introPaddingLeft: 0,
+    introFontSize: 1,
+    introDescrFontSize: 1,
+    introImage: "",
+    introMaxBlur: 0
+  })
+
+  const [introImage, setIntroImage] = useState<string>(`about/intro-images/xl.jpg`)
+  const [viewport, setViewport] = useState<number>(1)
 
   useEffect(() => {
     (async () => {
       const viewport = await getViewport()
-      const viewportName = Viewport[viewport]
-      setIntroImage(`about/intro-images/${viewportName}.jpg`)
-      switch (viewport) {
-        case 1:   // xs
-          setIntroHeight(90)
-          setIntroFontSize(3.5)
-          setIntroDescrFontSize(1.3)
-          setIntroMaxBlur(5)
-          break
-        case 2:   // sm
-          setIntroHeight(90)
-          setIntroFontSize(4)
-          setIntroDescrFontSize(1.3)
-          setIntroLeft(10)
-          setIntroPaddingLeft(10)
-          setIntroMaxBlur(5)
-          break
-        case 3:   // md
-          setIntroHeight(95)
-          setIntroLeft(16)
-          setIntroPaddingLeft(10)
-          setIntroFontSize(4.5)
-          setIntroDescrFontSize(1.5)
-          setIntroMaxBlur(3)
-          break
-        case 4:   // lg
-          setIntroHeight(95)
-          setIntroLeft(36)
-          setIntroPaddingLeft(10)
-          setIntroFontSize(4.5)
-          setIntroDescrFontSize(1.5)
-          setIntroMaxBlur(1)
-          break
-        case 5:   // xl
-          setIntroHeight(100)
-          setIntroLeft(36)
-          setIntroPaddingLeft(20)
-          setIntroFontSize(4.5)
-          setIntroDescrFontSize(1.5)
-          setIntroMaxBlur(1)
-          break
-      }
-      setStoryMargins(viewport < 3 ? "4vw" : "15vw")
+      setViewport(viewport)
     })()
   }, [])
+
+  useEffect(() => {
+    let currentResponsiveSetting: ResponsiveSetting = {...responsiveSetting}
+    const viewportName = Viewport[viewport]
+    setIntroImage(`about/intro-images/${viewportName}.jpg`)
+    switch (viewport) {
+      case 1:   // xs
+        currentResponsiveSetting.introHeight = 90
+        currentResponsiveSetting.introFontSize = 3.5
+        currentResponsiveSetting.introDescrFontSize = 1.3
+        currentResponsiveSetting.introMaxBlur = 5
+        break
+      case 2:   // sm
+        currentResponsiveSetting.introHeight = 90
+        currentResponsiveSetting.introFontSize = 4
+        currentResponsiveSetting.introDescrFontSize = 1.3
+        currentResponsiveSetting.introLeft = 10
+        currentResponsiveSetting.introPaddingLeft = 10
+        currentResponsiveSetting.introMaxBlur = 5
+        break
+      case 3:   // md
+        currentResponsiveSetting.introHeight = 95
+        currentResponsiveSetting.introLeft = 16
+        currentResponsiveSetting.introPaddingLeft = 10
+        currentResponsiveSetting.introFontSize = 4.5
+        currentResponsiveSetting.introDescrFontSize = 1.5
+        currentResponsiveSetting.introMaxBlur = 3
+        break
+      case 4:   // lg
+        currentResponsiveSetting.introHeight = 95
+        currentResponsiveSetting.introLeft = 36
+        currentResponsiveSetting.introPaddingLeft = 10
+        currentResponsiveSetting.introFontSize = 4.5
+        currentResponsiveSetting.introDescrFontSize = 1.5
+        currentResponsiveSetting.introMaxBlur = 1
+        break
+      case 5:   // xl
+        currentResponsiveSetting.introHeight = 100
+        currentResponsiveSetting.introLeft = 36
+        currentResponsiveSetting.introPaddingLeft = 20
+        currentResponsiveSetting.introFontSize = 4.5
+        currentResponsiveSetting.introDescrFontSize = 1.5
+        currentResponsiveSetting.introMaxBlur = 1
+        break
+    }
+    currentResponsiveSetting.storyMargin = viewport < 3 ? "4vw" : "15vw"
+    setResponsiveSetting(currentResponsiveSetting)
+  }, [viewport])
 
   return (
     <Box>
       <NavBar></NavBar>
       <Box>
-        <Parallax bgImage={introImage} blur={{ min: -1, max: introMaxBlur }}>
-          <Box style={{ height: `${introHeight}vh` }}>
+        <Parallax bgImage={introImage} blur={{ min: -1, max: responsiveSetting.introMaxBlur }}>
+          <Box style={{ height: `${responsiveSetting.introHeight}vh` }}>
             <Box sx={{
               background: "transparent",
-              pl: introPaddingLeft,
+              pl: responsiveSetting.introPaddingLeft,
               pt: 20,
               position: "absolute" as "absolute",
               top: "15%",
-              left: `${introLeft}%`,
+              left: `${responsiveSetting.introLeft}%`,
               textShadow: "4px 4px 10px #000000",
               justifyContent: "center",
               textAlign: "center" as "center",
             }}>
-              <Typography sx={{ fontSize: `${introFontSize}rem`, color: "white" }}>
+              <Typography sx={{ fontSize: `${responsiveSetting.introFontSize}rem`, color: "white" }}>
                 Pooja Kulkarni
               </Typography>
-              <Typography sx={{ fontSize: `${introDescrFontSize}rem`, color: "white" }}>
+              <Typography sx={{ fontSize: `${responsiveSetting.introDescrFontSize}rem`, color: "white" }}>
                 Software Engineer. Traveler. Optimist. A Happy Soul.
               </Typography>
             </Box>
@@ -100,7 +122,11 @@ function About() {
           <Typography sx={{ fontSize: "2rem", paddingBottom: "30px" }}>
             Who is Pooja Kulkarni?
           </Typography>
-          <Box sx={{ fontSize: "1rem", ml: storyMargin, mr: storyMargin }}>
+          <Box sx={{
+            fontSize: "1rem",
+            ml: responsiveSetting.storyMargin,
+            mr: responsiveSetting.storyMargin
+          }}>
             <Typography sx={{
               display: { xs: 'none', sm: 'block', md: 'block', lg: 'block' },
               mb: "20px"
