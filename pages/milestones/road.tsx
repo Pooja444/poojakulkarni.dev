@@ -19,7 +19,7 @@ function Road(props: RoadProps) {
             <Box sx={{
                 display: (props.viewport == 4 || props.viewport == 5) ? "none" : "block",
                 position: "absolute" as "absolute",
-                height: `${props.length - 6 ?? 94}vh`,
+                height: `${props.length - 6}vh`,
                 width: `0.15vw`,
                 borderRadius: "10px 10px 10px 10px",
                 mt: "3vh",
@@ -33,7 +33,7 @@ function Road(props: RoadProps) {
             <Box sx={{
                 display: (props.viewport == 4 || props.viewport == 5) ? "block" : "none",
                 position: "absolute" as "absolute",
-                height: `${props.length - 6 ?? 94}vh`,
+                height: `${props.length - 6}vh`,
                 width: `0.15vw`,
                 borderRadius: "10px 10px 10px 10px",
                 mt: "3vh",
