@@ -39,5 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 `nvm install <version>`
 `nvm use <version>`
 Check outdated packages: `npm outdated`
+`ncu -u`
 `npm install -g npm-check-updates`
 `npm update --save --save-dev`

@@ -59,7 +59,7 @@ function ForRecruiters() {
         <Typography fontSize="1.2rem" color="white">
           {"<<< "}<b>Currently looking for roles:</b>
           <Box component="span" sx={{ ml: "10px" }}>
-            Software Engineer I or II (Full-Stack/Backend/API Development/Distributed Systems) {" >>>"}
+            Senior Software Engineer (Full-Stack/Backend/API Development/Distributed Systems) {" >>>"}
           </Box>
         </Typography>
       </Box>
