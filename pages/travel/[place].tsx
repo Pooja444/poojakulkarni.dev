@@ -86,7 +86,7 @@ function Place(props: { place: PlaceDetails }) {
 
     return (
         <Box>
-            <NavBar/>
+            <NavBar />
             <Box sx={{
                 pt: "90px",
                 pb: "20px",
@@ -129,8 +129,8 @@ function Place(props: { place: PlaceDetails }) {
                                             <Image
                                                 src={image.url}
                                                 alt={image.url}
-                                                width={imageDimensions + "px"}
-                                                height={imageDimensions + "px"}
+                                                width={imageDimensions}
+                                                height={imageDimensions}
                                                 objectFit="contain"
                                                 priority={true}
                                             ></Image>

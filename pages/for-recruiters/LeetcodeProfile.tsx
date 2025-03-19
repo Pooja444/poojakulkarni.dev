@@ -127,7 +127,6 @@ function LeetcodeProfile(props: { sideMargins: number }) {
             flexWrap: "wrap",
             backgroundColor: "#FBF3E9"
         }}>
-
             <Box
                 sx={{
                     flex: 0.8,
@@ -146,10 +145,14 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                         height: "100px"
                     }}
                     >
-                        <Link href="https://leetcode.com/poojakulkarni562/" passHref>
-                            <a target="_blank" rel="noreferrer">
-                                <Image src={leetcodeData?.user.profile.userAvatar ?? "/random"} alt="leetcode-profile-pic" width={250} height={250}></Image>
-                            </a >
+                        <Link
+                            href="https://leetcode.com/poojakulkarni562/"
+                            passHref
+                            target="_blank"
+                            rel="noreferrer">
+
+                            <Image src={leetcodeData?.user.profile.userAvatar ?? "/random"} alt="leetcode-profile-pic" width={250} height={250}></Image>
+
                         </Link >
                     </Box >
                 </Box >
@@ -264,7 +267,7 @@ function LeetcodeProfile(props: { sideMargins: number }) {
                 </Box>
             </Box>
         </Box >
-    )
+    );
 }
 
 

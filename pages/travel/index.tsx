@@ -79,8 +79,12 @@ function Travel() {
                         height: "100%"
                       }
                     }}>
-                      <Link href="/travel/[place]" as={`/travel/${place.key}`} passHref>
-                        <Image src={place.coverImage} alt={place.title} width={frameWidth + "px"} height={frameWidth - 100 + "px"}></Image>
+                      <Link
+                        href="/travel/[place]"
+                        as={`/travel/${place.key}`}
+                        passHref
+                        legacyBehavior>
+                        <Image src={place.coverImage} alt={place.title} width={frameWidth} height={frameWidth - 100}></Image>
                       </Link>
                       <Box sx={{
                         position: "absolute",
@@ -97,8 +101,12 @@ function Travel() {
                           fontSize: "20px",
                           position: "absolute"
                         }}>
-                          <Link href="/travel/[place]" as={`/travel/${place.key}`} passHref>
-                            <Image src={place.overlayImage} alt={place.title} width={frameWidth + "px"} height={frameWidth - 100 + "px"}></Image>
+                          <Link
+                            href="/travel/[place]"
+                            as={`/travel/${place.key}`}
+                            passHref
+                            legacyBehavior>
+                            <Image src={place.overlayImage} alt={place.title} width={frameWidth} height={frameWidth - 100}></Image>
                           </Link>
                         </Box>
                       </Box>
@@ -111,7 +119,7 @@ function Travel() {
         }
       </Box>
     </Box>
-  )
+  );
 }
 
 export default Travel

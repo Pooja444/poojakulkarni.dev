@@ -57,24 +57,28 @@ const Blogs: NextPage = () => {
           fontSize: "1.2rem",
           textAlign: "center"
         }}>
-            Hey there! So sorry, but this page is still in progress. Meanwhile, you can check out the blogs I have written on <a href="https://medium.com/@poojakulkarni562" target="_blank" rel="noreferrer" style={{ color: "blue", cursor: "pointer" }}><u>medium</u></a>
+          Hey there! So sorry, but this page is still in progress. Meanwhile, you can check out the blogs I have written on <a href="https://medium.com/@poojakulkarni562" target="_blank" rel="noreferrer" style={{ color: "blue", cursor: "pointer" }}><u>medium</u></a>
         </Typography>
       </Box>
       <Box sx={{
         mt: "50px",
         textAlign: "center",
       }}>
-        <Image src="/blogs/coming-soon-sign.jpg" width="400px" height="250px"></Image>
-        <Link href="https://www.freepik.com/free-vector/coming-soon-construction-illustration-design_13732339.htm#query=under%20construction&position=2&from_view=keyword" passHref>
-          <a target="_blank" rel="noreferrer">
-            <Typography fontSize="10px">
-              <u>Author credit</u>
-            </Typography>
-          </a>
+        <Image src="/blogs/coming-soon-sign.jpg" width="400" height="250" alt={'coming-soon-sign'}></Image>
+        <Link
+          href="https://www.freepik.com/free-vector/coming-soon-construction-illustration-design_13732339.htm#query=under%20construction&position=2&from_view=keyword"
+          passHref
+          target="_blank"
+          rel="noreferrer">
+
+          <Typography fontSize="10px">
+            <u>Author credit</u>
+          </Typography>
+
         </Link>
       </Box>
     </Box>
-  )
+  );
 }
 
 export default Blogs

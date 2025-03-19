@@ -110,8 +110,12 @@ function Contact() {
             POOJA KULKARNI
           </Typography>
           <Typography fontSize={cardSubTitleFontSize + "rem"} sx={{ mt: `${cardGaps}px` }}>
-            <Link href="mailto:poojakulkarni562@gmail.com" passHref>
-              <a target="_blank" rel="noreferrer">poojakulkarni562@gmail.com</a>
+            <Link
+              href="mailto:poojakulkarni562@gmail.com"
+              passHref
+              target="_blank"
+              rel="noreferrer">
+              poojakulkarni562@gmail.com
             </Link>
             <span style={{ padding: `${cardGaps / 2}px` }}>|</span> San Francisco, California
           </Typography>
@@ -123,50 +127,70 @@ function Contact() {
             mt: `${cardGaps}px`
           }}>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://www.linkedin.com/in/poojakulkarni562/" passHref>
-                <a target="_blank" rel="noreferrer">
-                  <Image src="/contact/social-media-icons/linkedin.png"
-                    width={iconDimensions + "px"}
-                    height={iconDimensions + "px"}
-                  ></Image>
-                </a>
+              <Link
+                href="https://www.linkedin.com/in/poojakulkarni562/"
+                passHref
+                target="_blank"
+                rel="noreferrer">
+
+                <Image src="/contact/social-media-icons/linkedin.png"
+                  width={iconDimensions}
+                  height={iconDimensions}
+                  alt={'linkedin'}
+                ></Image>
+
               </Link>
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://www.facebook.com/pooja.kulkarni.18400/" passHref>
-                <a target="_blank" rel="noreferrer">
-                  <Image src="/contact/social-media-icons/facebook.png"
-                    width={iconDimensions + "px"}
-                    height={iconDimensions + "px"}
-                  ></Image>
-                </a>
+              <Link
+                href="https://www.facebook.com/pooja.kulkarni.18400/"
+                passHref
+                target="_blank"
+                rel="noreferrer">
+
+                <Image src="/contact/social-media-icons/facebook.png"
+                  width={iconDimensions}
+                  height={iconDimensions}
+                  alt={'facebook'}
+                ></Image>
+
               </Link>
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://www.instagram.com/the.happy.soul444/" passHref>
-                <a target="_blank" rel="noreferrer">
-                  <Image src="/contact/social-media-icons/instagram.png"
-                    width={iconDimensions + "px"}
-                    height={iconDimensions + "px"}
-                  ></Image>
-                </a>
+              <Link
+                href="https://www.instagram.com/the.happy.soul444/"
+                passHref
+                target="_blank"
+                rel="noreferrer">
+
+                <Image src="/contact/social-media-icons/instagram.png"
+                  width={iconDimensions}
+                  height={iconDimensions}
+                  alt={'instagram'}
+                ></Image>
+
               </Link>
             </Box>
             <Box sx={{ padding: `${cardGaps}px` }}>
-              <Link href="https://medium.com/@poojakulkarni562" passHref>
-                <a target="_blank" rel="noreferrer">
-                  <Image src="/contact/social-media-icons/medium.png"
-                    width={iconDimensions + "px"}
-                    height={iconDimensions + "px"}
-                  ></Image>
-                </a>
+              <Link
+                href="https://medium.com/@poojakulkarni562"
+                passHref
+                target="_blank"
+                rel="noreferrer">
+
+                <Image src="/contact/social-media-icons/medium.png"
+                  width={iconDimensions}
+                  height={iconDimensions}
+                  alt={'medium'}
+                ></Image>
+
               </Link>
             </Box>
           </Box>
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
 export default Contact
